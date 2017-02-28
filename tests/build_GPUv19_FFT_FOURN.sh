@@ -1,0 +1,1 @@
+pgcc -Mpreprocess -DGPU -DUSE_FOURN_1 -DUSE_FOURN_2 -DUSE_FOURN_3 -DUSE_FOURN_4 -Minfo=accel -Mcudalib=cufft -ta=tesla:pinned,fastmath -fast -tp=p7 -lrt SubsequentSlip_Feb_2v19.c -I/usr/local/include -L/usr/local/lib -lfftw3f 

@@ -16,6 +16,7 @@
 #include <sys/time.h> 
 #include <openacc.h> 
 #include <cufft.h> 
+#include <fftw3.h>
 
 
 #define MT 1	    //Material type: 1 - isotropic; 2 - cubic
@@ -572,48 +573,104 @@ printf("Number Of GPUs %d\n",num_devices);
             
           
 	  vflag=0;
+
 	  
-	  #ifdef GPU 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+
+
+//#define USE_FOURN_1	  
+//#define USE_CUFFT_1
+// #define USE_FFTW_1
+
+	  
+	  #ifdef USE_CUFFT_1 
 	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
 	  {
-	  #endif  
+	  #endif 
+	  
+	  
 	  struct timespec now, tmstart;
 	  clock_gettime(CLOCK_REALTIME, &tmstart);
  
-//#define USE_CUFFT
-//#ifdef USE_CUFFT
+
+#ifdef USE_CUFFT_1
 	  cufftHandle planc2c;
 	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
 	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
-//#endif
+#endif
 
-	  for(isa=0;isa<NSV;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-//#ifndef USE_CUFFT
-//	    fourn(&data[psys],nf,3,-1);  /* FFT*/
-//#else  
-     #pragma acc host_data use_device(data)
-	    {
-
-	      cufftExecC2C(planc2c, (cufftComplex *)(&data[psys]+1), (cufftComplex *)(&data[psys]+1),CUFFT_FORWARD);            
-	  } //#pragma acc host_data use_device(vx)
-	 
+#ifdef USE_FFTW_1
+	  static fftwf_plan plan;
+	  if (!plan) {
+	    plan = fftwf_plan_dft_3d(N1,
+				     N2,
+				     N3,
+				     (fftw_complex *) (data + 1),
+				     (fftw_complex *) (data + 1),
+				     FFTW_FORWARD,
+				     FFTW_ESTIMATE);
 	  }
-//#endif
-          
-   	  clock_gettime(CLOCK_REALTIME, &now);
+#endif				   
+
+
+
+	 
+#ifdef USE_FOURN_1
+
+            for(isa=0;isa<NSV;isa++){
+	      psys = 2*(isa*N1*N2*N3);
+	      fourn(&data[psys],nf,3,-1);  /* FFT*/
+	    }
+#endif
+
+
+#ifdef USE_FFTW_1 
+
+            for(isa=0;isa<NSV;isa++){
+	      psys = 2*(isa*N1*N2*N3);
+	      
+	      fftwf_execute_dft(plan, (fftw_complex *) (&data[psys] + 1),
+				(fftw_complex *) (&data[psys] + 1));
+	    }
+#endif	     
+	     
+
+#ifdef USE_CUFFT_1
+
+            for(isa=0;isa<NSV;isa++){
+	    psys = 2*(isa*N1*N2*N3);
+	    
+	    //             #pragma acc host_data use_device(data)
+ 	    {
+	      cufftExecC2C(planc2c, (cufftComplex *)(&data[psys]+1), (cufftComplex *)(&data[psys]+1),
+			   CUFFT_FORWARD);  	   	   
+  	    } //#pragma acc host_data use_device(data)
+  	    
+	                            }
+#endif
+  
+	  clock_gettime(CLOCK_REALTIME, &now);
 	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
 	  acc_n++;
-//	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
+	  
+#ifdef USE_CUFFT_1	  
+	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
+#endif	  
  
 #if 0									       
 	  getchar();
 #endif
 	  
-          #ifdef GPU 
-	  } //#pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+ 
+          #ifdef USE_CUFFT_1 
+	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
 	  #endif 
-  
+	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT		  
   
 	  for (i=0; i<2*N1*N2*N3*NSV+1; i++){
 	    data2[i] = 0;
@@ -645,10 +702,118 @@ printf("Number Of GPUs %d\n",num_devices);
 	    }
 	  }
           
-	  for(isa=0;isa<NS;isa++){
+          
+          
+          
+          
+	 
+          
+          
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+
+
+//#define USE_FOURN_2	  
+//#define USE_CUFFT_2
+//#define USE_FFTW_2
+
+	  
+	  #ifdef USE_CUFFT_2 
+	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  {
+	  #endif 
+	  
+	  
+	 
+	  clock_gettime(CLOCK_REALTIME, &tmstart);
+ 
+
+#ifdef USE_CUFFT_2
+	  cufftHandle planc2c;
+	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
+	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
+#endif
+
+#ifdef USE_FFTW_2
+	  
+	  if (!plan) {
+	    plan = fftwf_plan_dft_3d(N1,
+				     N2,
+				     N3,
+				     (fftw_complex *) (datag + 1),
+				     (fftw_complex *) (datag + 1),
+				     FFTW_BACKWARD,
+				     FFTW_ESTIMATE);
+	  }
+#endif				   
+
+
+
+	 
+#ifdef USE_FOURN_2
+            for(isa=0;isa<NS;isa++){
 	    psys = 2*(isa*N1*N2*N3);
 	    fourn(&datag[psys],nf,3,1);	/* inverse FFT*/
 	  }
+#endif
+
+
+#ifdef USE_FFTW_2 
+
+            for(isa=0;isa<NSV;isa++){
+	      psys = 2*(isa*N1*N2*N3);
+	      
+	      fftwf_execute_dft(plan, (fftw_complex *) (&datag[psys] + 1),
+				(fftw_complex *) (&datag[psys] + 1));
+	    }
+#endif	     
+	     
+
+#ifdef USE_CUFFT_2
+
+            for(isa=0;isa<NSV;isa++){
+	    psys = 2*(isa*N1*N2*N3);
+	    
+	    //             #pragma acc host_data use_device(data)
+ 	    {
+	      cufftExecC2C(planc2c, (cufftComplex *)(&datag[psys]+1), (cufftComplex *)(&datag[psys]+1),
+			   CUFFT_BACKWARD);  	   	   
+  	    } //#pragma acc host_data use_device(data)
+  	    
+	                            }
+#endif
+  
+	  clock_gettime(CLOCK_REALTIME, &now);
+	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
+	  acc_n++;
+	  
+#ifdef USE_CUFFT_2	  
+	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
+#endif	  
+ 
+#if 0									       
+	  getchar();
+#endif
+	  
+ 
+          #ifdef USE_CUFFT_2 
+	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  #endif 
+	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
 	  /*strain & stress calculation*/
 	  if ((it == NT-1 && itp == NP-1) || ((it!=0)&&(it%t_bwvirtualpf==0)&&(it!=NT-1))){
@@ -817,10 +982,115 @@ printf("Number Of GPUs %d\n",num_devices);
 	      }
 	      if (checkpevolv) {
 		// FFT on data
+		
+		
+		
+		
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+
+
+//#define USE_FOURN_3	  
+//#define USE_CUFFT_3
+//#define USE_FFTW_3
+
+	  
+	  #ifdef USE_CUFFT_3 
+	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  {
+	  #endif 
+	  
+	  
+	  
+	  clock_gettime(CLOCK_REALTIME, &tmstart);
+ 
+
+#ifdef USE_CUFFT_3
+	  cufftHandle planc2c;
+	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
+	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
+#endif
+
+#ifdef USE_FFTW_3	 
+	  static fftwf_plan plan;
+	  if (!plan) {
+	    plan = fftwf_plan_dft_3d(N1,
+				     N2,
+				     N3,
+				     (fftw_complex *) (data + 1),
+				     (fftw_complex *) (data + 1),
+				     FFTW_FORWARD,
+				     FFTW_ESTIMATE);
+	  }
+#endif				   
+
+
+
+	 
+#ifdef USE_FOURN_3
+		
 		for(isa=0;isa<NSV;isa++){
 		  psys = 2*(isa*N1*N2*N3);
 		  fourn(&data[psys],nf,3,-1);  //FFT
 		}
+
+#endif
+
+
+#ifdef USE_FFTW_3
+
+            for(isa=0;isa<NSV;isa++){
+	      psys = 2*(isa*N1*N2*N3);
+	      
+	      fftwf_execute_dft(plan, (fftw_complex *) (&data[psys] + 1),
+				(fftw_complex *) (&data[psys] + 1));
+	    }
+#endif	     
+	     
+
+#ifdef USE_CUFFT_3
+
+            for(isa=0;isa<NSV;isa++){
+	    psys = 2*(isa*N1*N2*N3);
+	    
+	    //             #pragma acc host_data use_device(data)
+ 	    {
+	      cufftExecC2C(planc2c, (cufftComplex *)(&data[psys]+1), (cufftComplex *)(&data[psys]+1),
+			   CUFFT_FORWARD);  	   	   
+  	    } //#pragma acc host_data use_device(data)
+  	    
+	                            }
+#endif
+  
+	  clock_gettime(CLOCK_REALTIME, &now);
+	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
+	  acc_n++;
+	  
+#ifdef USE_CUFFT_3	  
+	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
+#endif	  
+ 
+#if 0									       
+	  getchar();
+#endif
+	  
+ 
+          #ifdef USE_CUFFT_3
+	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  #endif 
+	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT			
+		
+		
+		
+		
+		
+		
+		
+		
 		//initialize data2 and datag
 		for (i=0; i<2*N1*N2*N3*NSV+1; i++){
 		  data2[i] = 0;
@@ -858,14 +1128,149 @@ printf("Number Of GPUs %d\n",num_devices);
 		    }
 		  }
 		}
+		
+		
+		
 		//inverse FFT on data2 and datag
-		for(isa=0;isa<NSV;isa++){
-		  psys = 2*(isa*N1*N2*N3);
-		  fourn(&data2[psys],nf,3,1);	// inverse FFT
-		  if (isa<NS) {
-		    fourn(&datag[psys],nf,3,1);	// inverse FFT
-		  }
-		}
+		 
+		  
+		  
+		  
+		  
+		  
+ //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+
+
+//#define USE_FOURN_4	  
+//#define USE_CUFFT_4
+//#define USE_FFTW_4
+
+	  
+	  #ifdef USE_CUFFT_4 
+	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  {
+	  #endif 
+	  
+	  
+	 
+	  clock_gettime(CLOCK_REALTIME, &tmstart);
+ 
+
+#ifdef USE_CUFFT_4
+	  cufftHandle planc2c;
+	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
+	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
+#endif
+
+#ifdef USE_FFTW_4
+	  static fftwf_plan plan1;
+	  static fftwf_plan plan2;
+	  
+	  if (!plan1) {
+	    plan1 = fftwf_plan_dft_3d(N1,
+				     N2,
+				     N3,
+				     (fftw_complex *) (data2 + 1),
+				     (fftw_complex *) (data2 + 1),
+				     FFTW_BACKWARD,
+				     FFTW_ESTIMATE);
+	  }
+	   if (!plan2) {
+	   plan2 = fftwf_plan_dft_3d(N1,
+				     N2,
+				     N3,
+				     (fftw_complex *) (datag + 1),
+				     (fftw_complex *) (datag + 1),
+				     FFTW_BACKWARD,
+				     FFTW_ESTIMATE);			     
+				     
+	  }
+#endif				   
+
+
+
+	 
+#ifdef USE_FOURN_4
+            for(isa=0;isa<NS;isa++){
+	    psys = 2*(isa*N1*N2*N3);
+	    fourn(&data2[psys],nf,3,1);	/* inverse FFT*/  
+	     if (isa<NS) {
+	    fourn(&datag[psys],nf,3,1);	/* inverse FFT*/     
+	  }
+	 } 
+#endif
+
+
+#ifdef USE_FFTW_4
+
+            for(isa=0;isa<NSV;isa++){
+	      psys = 2*(isa*N1*N2*N3);
+	      
+	      fftwf_execute_dft(plan1, (fftw_complex *) (&data2[psys] + 1),
+				(fftw_complex *) (&data2[psys] + 1));
+	     if (isa<NS) {
+	      fftwf_execute_dft(plan2, (fftw_complex *) (&datag[psys] + 1),
+				(fftw_complex *) (&datag[psys] + 1)); 
+	     }   
+	    }
+#endif	     
+	     
+
+#ifdef USE_CUFFT_4
+
+            for(isa=0;isa<NSV;isa++){
+	    psys = 2*(isa*N1*N2*N3);
+	    
+	    //             #pragma acc host_data use_device(data)
+ 	    {
+	      cufftExecC2C(planc2c, (cufftComplex *)(&data2[psys]+1), (cufftComplex *)(&data2[psys]+1),
+			   CUFFT_BACKWARD);  	   	   
+  	    } //#pragma acc host_data use_device(data)
+  	    
+  	    
+  	    if (isa<NS) {
+	      
+  	    //             #pragma acc host_data use_device(data)
+ 	    {
+	      cufftExecC2C(planc2c, (cufftComplex *)(&datag[psys]+1), (cufftComplex *)(&datag[psys]+1),
+			   CUFFT_BACKWARD);  	   	   
+  	    } //#pragma acc host_data use_device(data)
+  	    
+  	    
+	                }
+#endif
+  
+	  clock_gettime(CLOCK_REALTIME, &now);
+	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
+	  acc_n++;
+	  
+#ifdef USE_CUFFT_4	  
+	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
+#endif	  
+ 
+#if 0									       
+	  getchar();
+#endif
+	  
+ 
+          #ifdef USE_CUFFT_4 
+	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  #endif 
+	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT    
+		  
+		  
+		  
+		   
+		
+		
+		
+		
+		
 		if (1) {//checkpass==1
 		  energy_in = Energy_calculation(fx,fy,fz,eps,epsv,C11,C12,C44,data,interface_n,ppoint_x,ppoint_y,ppoint_z);
 		  energy_in3 = avestrain(avepsd, avepst, eps,epsv, xi, nsize, sigma, S11, S12, S44, mu,energy_in3,&energy_in4, &strain_average,border,interface_n,ppoint_x,ppoint_y,ppoint_z);
