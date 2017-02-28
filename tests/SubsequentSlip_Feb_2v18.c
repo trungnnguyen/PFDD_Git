@@ -16,6 +16,7 @@
 #include <sys/time.h> 
 #include <openacc.h> 
 #include <cufft.h> 
+#include <fftw3.h>
 
 
 #define MT 1	    //Material type: 1 - isotropic; 2 - cubic
@@ -575,8 +576,8 @@ printf("Number Of GPUs %d\n",num_devices);
 
 
 	  
-#define USE_FOURN	  
-//#define USE_CUFFT
+	  //#define USE_FOURN	  
+#define USE_CUFFT
 //#define USE_FFTW
 
 	  
@@ -597,16 +598,16 @@ printf("Number Of GPUs %d\n",num_devices);
 #endif
 
 #ifdef USE_FFTW
-
-  /*    fftw_plan plan = fftw_plan_dft_3d(N1,
-				        N2,
-				        N3,
-				     &data[psys] ,
-				     &data[psys] ,
+	  static fftwf_plan plan;
+	  if (!plan) {
+	    plan = fftwf_plan_dft_3d(N1,
+				     N2,
+				     N3,
+				     (fftw_complex *) (data + 1),
+				     (fftw_complex *) (data + 1),
 				     FFTW_FORWARD,
 				     FFTW_ESTIMATE);
-				     
- */
+	  }
 #endif				   
 
 
@@ -615,26 +616,20 @@ printf("Number Of GPUs %d\n",num_devices);
 #ifdef USE_FOURN
 
             for(isa=0;isa<NSV;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-	    fourn(&data[psys],nf,3,-1);  /* FFT*/
-	     }
+	      psys = 2*(isa*N1*N2*N3);
+	      fourn(&data[psys],nf,3,-1);  /* FFT*/
+	    }
 #endif
 
 
 #ifdef USE_FFTW 
 
             for(isa=0;isa<NSV;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-	      fftw_plan plan = fftw_plan_dft_3d(N1,
-				        N2,
-				        N3,
-				     &data[psys] ,
-				     &data[psys] ,
-				     FFTW_FORWARD,
-				     FFTW_ESTIMATE);
-	    
-	     fftw_execute(plan);
-	     }
+	      psys = 2*(isa*N1*N2*N3);
+	      
+	      fftwf_execute_dft(plan, (fftw_complex *) (&data[psys] + 1),
+				(fftw_complex *) (&data[psys] + 1));
+	    }
 #endif	     
 	     
 
@@ -643,8 +638,7 @@ printf("Number Of GPUs %d\n",num_devices);
             for(isa=0;isa<NSV;isa++){
 	    psys = 2*(isa*N1*N2*N3);
 	    
-	    
-             #pragma acc host_data use_device(data)
+	    //             #pragma acc host_data use_device(data)
  	    {
 	      cufftExecC2C(planc2c, (cufftComplex *)(&data[psys]+1), (cufftComplex *)(&data[psys]+1),
 			   CUFFT_FORWARD);  	   	   
