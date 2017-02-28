@@ -17,6 +17,7 @@
 #include <openacc.h> 
 #include <cufft.h> 
 #include <fftw3.h>
+ 
 
 
 #define MT 1	    //Material type: 1 - isotropic; 2 - cubic
@@ -1966,13 +1967,128 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
           }
       }
     
+    
+    
+    
    
-    for(i=0;i<ND;i++){
-        for (j=0;j<ND;j++){
+    
+          
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+
+
+//#define USE_FOURN_5	  
+//#define USE_CUFFT_5
+//#define USE_FFTW_5
+
+	  
+	  #ifdef USE_CUFFT_5 
+	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  {
+	  #endif 
+	  
+	  
+	  struct timespec now, tmstart;
+	  clock_gettime(CLOCK_REALTIME, &tmstart);
+          double acc_time = 0;
+          int acc_n = 0;
+
+#ifdef USE_CUFFT_5
+	  cufftHandle planc2c;
+	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
+	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
+#endif
+
+#ifdef USE_FFTW_5
+	  static fftwf_plan plan;
+	  if (!plan) {
+	    plan = fftwf_plan_dft_3d(N1,
+				     N2,
+				     N3,
+				     (fftw_complex *) (databeta + 1),
+				     (fftw_complex *) (databeta + 1),
+				     FFTW_BACKWARD,
+				     FFTW_ESTIMATE);
+	  }
+#endif				   
+
+
+
+	 
+#ifdef USE_FOURN_5
+           for(i=0;i<ND;i++){
+           for (j=0;j<ND;j++){
             psys = 2*(i*N1*N2*N3+j*N1*N2*N3*ND);
             fourn(&databeta[psys],nf,3,1);	/* inverse FFT for strain*/
-        }
-    }
+                }
+           }
+#endif
+
+
+#ifdef USE_FFTW_5 
+
+           for(i=0;i<ND;i++){
+           for (j=0;j<ND;j++){
+            psys = 2*(i*N1*N2*N3+j*N1*N2*N3*ND);
+	      
+	      fftwf_execute_dft(plan, (fftw_complex *) (&databeta[psys] + 1),
+				(fftw_complex *) (&databeta[psys] + 1));
+	    }
+	    }
+#endif	     
+	     
+
+#ifdef USE_CUFFT_5
+
+            for(i=0;i<ND;i++){
+            for (j=0;j<ND;j++){
+            psys = 2*(i*N1*N2*N3+j*N1*N2*N3*ND);
+	    
+	    //             #pragma acc host_data use_device(data)
+ 	    {
+	      cufftExecC2C(planc2c, (cufftComplex *)(&databeta[psys]+1), (cufftComplex *)(&databeta[psys]+1),
+			   CUFFT_BACKWARD);  	   	   
+  	    } //#pragma acc host_data use_device(data)
+  	    
+	    }
+	    }
+#endif
+  
+	  clock_gettime(CLOCK_REALTIME, &now);
+	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
+	  acc_n++;
+	  
+#ifdef USE_CUFFT_5	  
+	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
+#endif	  
+ 
+#if 0									       
+	  getchar();
+#endif
+	  
+ 
+          #ifdef USE_CUFFT_5 
+	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  #endif 
+	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     for (i=0; i<2*N1*N2*N3*ND*ND+1; i++){
         databeta[i] = databeta[i]/(N1*N2*N3);
 	}
@@ -2677,13 +2793,119 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
                      }
          }
      }
-//printf("inverse FFT \n");
-    for(isa=0;isa<NSV;isa++)
-    {
-        psys = 2*(isa*N1*N2*N3);
+
+	
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+
+
+//#define USE_FOURN_6	  
+//#define USE_CUFFT_6
+//#define USE_FFTW_6
+
+	  
+	  #ifdef USE_CUFFT_6 
+	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  {
+	  #endif 
+	  
+	  
+	  struct timespec now, tmstart;
+	  clock_gettime(CLOCK_REALTIME, &tmstart);
+          double acc_time = 0;
+          int acc_n = 0;
+
+#ifdef USE_CUFFT_6 
+	  cufftHandle planc2c;
+	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
+	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
+#endif
+
+#ifdef USE_FFTW_6 
+	   static fftwf_plan plan3;
+	  if (!plan3) {
+	     plan3 = fftwf_plan_dft_3d(N1,
+				      N2,
+				      N3,
+				     (fftw_complex *) (data2 + 1),
+				     (fftw_complex *) (data2 + 1),
+				     FFTW_BACKWARD,
+				     FFTW_ESTIMATE);
+	  }
+#endif				   
+
+
+
+	 
+#ifdef USE_FOURN_6 
+          //printf("inverse FFT \n");
+         for(isa=0;isa<NSV;isa++){
+          psys = 2*(isa*N1*N2*N3);
 	    fourn(&data2[psys],nf,3,1);	/* inverse FFT*/
 //	  printf("isa %d \n", isa);
 	}
+#endif
+
+
+#ifdef USE_FFTW_6  
+
+            for(isa=0;isa<NSV;isa++){
+            psys = 2*(isa*N1*N2*N3);
+	      
+	      fftwf_execute_dft(plan3, (fftw_complex *) (&data2[psys] + 1),
+				(fftw_complex *) (&data2[psys] + 1));
+	    }
+	     
+#endif	     
+	     
+
+#ifdef USE_CUFFT_6 
+
+            for(isa=0;isa<NSV;isa++){
+            psys = 2*(isa*N1*N2*N3);
+	    
+	    //             #pragma acc host_data use_device(data)
+ 	    {
+	      cufftExecC2C(planc2c, (cufftComplex *)(&data2[psys]+1), (cufftComplex *)(&data2[psys]+1),
+			   CUFFT_BACKWARD);  	   	   
+  	    } //#pragma acc host_data use_device(data)
+  	    
+	    }
+	     
+#endif
+  
+	  clock_gettime(CLOCK_REALTIME, &now);
+	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
+	  acc_n++;
+	  
+#ifdef USE_CUFFT_6 	  
+	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
+#endif	  
+ 
+#if 0									       
+	  getchar();
+#endif
+	  
+ 
+          #ifdef USE_CUFFT_6  
+	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
+	  #endif 
+	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
+//**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT  	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 //printf("virtual calculation");
     for(u=0;u<ND;u++)
         for(v=0;v<ND;v++)
