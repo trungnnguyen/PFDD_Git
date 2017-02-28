@@ -572,8 +572,15 @@ printf("Number Of GPUs %d\n",num_devices);
             
           
 	  vflag=0;
+
+
 	  
-	  #ifdef GPU 
+#define USE_FOURN	  
+//#define USE_CUFFT
+//#define USE_FFTW
+
+	  
+	  #ifdef USE_CUFFT 
 	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
 	  {
 	  #endif 
@@ -582,38 +589,84 @@ printf("Number Of GPUs %d\n",num_devices);
 	  struct timespec now, tmstart;
 	  clock_gettime(CLOCK_REALTIME, &tmstart);
  
-#define USE_CUFFT
+
 #ifdef USE_CUFFT
 	  cufftHandle planc2c;
 	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
 	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
 #endif
 
-	  for(isa=0;isa<NSV;isa++){
+#ifdef USE_FFTW
+
+  /*    fftw_plan plan = fftw_plan_dft_3d(N1,
+				        N2,
+				        N3,
+				     &data[psys] ,
+				     &data[psys] ,
+				     FFTW_FORWARD,
+				     FFTW_ESTIMATE);
+				     
+ */
+#endif				   
+
+
+
+	 
+#ifdef USE_FOURN
+
+            for(isa=0;isa<NSV;isa++){
 	    psys = 2*(isa*N1*N2*N3);
-#ifndef USE_CUFFT
 	    fourn(&data[psys],nf,3,-1);  /* FFT*/
-#else  
-     
+	     }
+#endif
+
+
+#ifdef USE_FFTW 
+
+            for(isa=0;isa<NSV;isa++){
+	    psys = 2*(isa*N1*N2*N3);
+	      fftw_plan plan = fftw_plan_dft_3d(N1,
+				        N2,
+				        N3,
+				     &data[psys] ,
+				     &data[psys] ,
+				     FFTW_FORWARD,
+				     FFTW_ESTIMATE);
+	    
+	     fftw_execute(plan);
+	     }
+#endif	     
+	     
+
+#ifdef USE_CUFFT
+
+            for(isa=0;isa<NSV;isa++){
+	    psys = 2*(isa*N1*N2*N3);
+	    
+	    
              #pragma acc host_data use_device(data)
  	    {
 	      cufftExecC2C(planc2c, (cufftComplex *)(&data[psys]+1), (cufftComplex *)(&data[psys]+1),
-			   CUFFT_FORWARD);            
+			   CUFFT_FORWARD);  	   	   
   	    } //#pragma acc host_data use_device(data)
-	  }
+  	    
+	                            }
 #endif
   
 	  clock_gettime(CLOCK_REALTIME, &now);
 	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
 	  acc_n++;
+	  
+#ifdef USE_CUFFT	  
 	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
+#endif	  
  
 #if 0									       
 	  getchar();
 #endif
 	  
  
-          #ifdef GPU 
+          #ifdef USE_CUFFT 
 	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
 	  #endif 
   
