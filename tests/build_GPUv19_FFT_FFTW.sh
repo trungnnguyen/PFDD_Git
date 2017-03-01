@@ -1,1 +1,1 @@
-pgcc -Mpreprocess -DGPU -DUSE_FFTW_1 -DUSE_FFTW_2 -DUSE_FFTW_3 -DUSE_FFTW_4 -DUSE_FFTW_5 -DUSE_FFTW_6  -Minfo=accel -Mcudalib=cufft -ta=tesla:pinned,fastmath -fast -tp=p7 -lrt SubsequentSlip_Feb_2v19.c -I/usr/local/include -L/usr/local/lib -lfftw3f -lfftw3  
+pgcc -Mpreprocess -DGPU -DUSE_FFTW -DUSE_FFTW_1 -DUSE_FFTW_2 -DUSE_FFTW_3 -DUSE_FFTW_4 -DUSE_FFTW_5 -DUSE_FFTW_6  -Minfo=accel -Mcudalib=cufft -ta=tesla:pinned,fastmath -fast -tp=p7 -lrt SubsequentSlip_Feb_2v19.c -I/usr/local/include -L/usr/local/lib -lfftw3f -lfftw3  

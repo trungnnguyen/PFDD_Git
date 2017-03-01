@@ -36,9 +36,86 @@
 #define NP2 1
 #define pi 3.141592654
 
+void fourn(float *, int nn[4], int, int);  //Fourier Transform
+
+static void
+fft_forward_fourn(float *data)
+{
+  int nf[4] = { 0, N1, N2, N3 };
+  fourn(data, nf, 3, -1);
+}
+
+static void
+fft_backward_fourn(float *data)
+{
+  int nf[4] = { 0, N1, N2, N3 };
+  fourn(data, nf, 3, 1);
+}
+
+static void
+fft_forward_fftw(float *data)
+{
+  static fftwf_plan plan;
+  if (!plan) {
+    plan = fftwf_plan_dft_3d(N1,
+			     N2,
+			     N3,
+			     (fftwf_complex *) (data + 1),
+			     (fftwf_complex *) (data + 1),
+			     FFTW_FORWARD,
+			     FFTW_ESTIMATE);
+  }
+
+  fftwf_execute_dft(plan, (fftwf_complex *) (data + 1),
+		    (fftwf_complex *) (data + 1));
+}
+
+static void
+fft_backward_fftw(float *data)
+{
+  static fftwf_plan plan;
+  if (!plan) {
+    plan = fftwf_plan_dft_3d(N1,
+			     N2,
+			     N3,
+			     (fftwf_complex *) (data + 1),
+			     (fftwf_complex *) (data + 1),
+			     FFTW_BACKWARD,
+			     FFTW_ESTIMATE);
+  }
+
+  fftwf_execute_dft(plan, (fftwf_complex *) (data + 1),
+		    (fftwf_complex *) (data + 1));
+}
+
+static void
+fft_forward(float *data)
+{
+#if defined(USE_FOURN)
+  fft_forward_fourn(data);
+#elif defined(USE_FFTW)
+  fft_forward_fftw(data);
+#else
+#error I do not know which FFT to use  
+#endif
+}
+
+static void
+fft_backward(float *data)
+{
+#if defined(USE_FOURN)
+  fft_backward_fourn(data);
+#elif defined(USE_FFTW)
+  fft_backward_fftw(data);
+#else
+#error I do not know which FFT to use  
+#endif
+}
+
+
+
 long lrint(double);
 
-void fourn(float *, int nn[4], int, int);  //Fourier Transform
 void CoFactor(double **a,int n,double **b);
 void Transpose(double **a,int n);          //Matrix Transpose?
 double Determinant(double **a,int n);      //Matrix Determinant?
@@ -579,11 +656,6 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-//#define USE_FOURN_1	  
-//#define USE_CUFFT_1
-// #define USE_FFTW_1
-
-	  
 	  #ifdef USE_CUFFT_1 
 	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
 	  {
@@ -600,41 +672,14 @@ printf("Number Of GPUs %d\n",num_devices);
 	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
 #endif
 
-#ifdef USE_FFTW_1
-	  static fftwf_plan plan;
-	  if (!plan) {
-	    plan = fftwf_plan_dft_3d(N1,
-				     N2,
-				     N3,
-				     (fftwf_complex *) (data + 1),
-				     (fftwf_complex *) (data + 1),
-				     FFTW_FORWARD,
-				     FFTW_ESTIMATE);
-	  }
-#endif				   
-
-
-
 	 
-#ifdef USE_FOURN_1
-
+#if defined(USE_FOURN_1) || defined(USE_FFTW_1)
             for(isa=0;isa<NSV;isa++){
 	      psys = 2*(isa*N1*N2*N3);
-	      fourn(&data[psys],nf,3,-1);  /* FFT*/
+	      fft_forward(&data[psys]);
 	    }
 #endif
 
-
-#ifdef USE_FFTW_1 
-
-            for(isa=0;isa<NSV;isa++){
-	      psys = 2*(isa*N1*N2*N3);
-	      
-	      fftwf_execute_dft(plan, (fftwf_complex *) (&data[psys] + 1),
-				(fftwf_complex *) (&data[psys] + 1));
-	    }
-#endif	     
-	     
 
 #ifdef USE_CUFFT_1
 
@@ -734,40 +779,13 @@ printf("Number Of GPUs %d\n",num_devices);
 	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
 #endif
 
-#ifdef USE_FFTW_2
-	  
-	  if (!plan) {
-	    plan = fftwf_plan_dft_3d(N1,
-				     N2,
-				     N3,
-				     (fftwf_complex *) (datag + 1),
-				     (fftwf_complex *) (datag + 1),
-				     FFTW_BACKWARD,
-				     FFTW_ESTIMATE);
-	  }
-#endif				   
-
-
-
-	 
-#ifdef USE_FOURN_2
-            for(isa=0;isa<NS;isa++){
+#if defined(USE_FOURN_2) || defined(USE_FFTW_2)
+	  for(isa=0;isa<NS;isa++){
 	    psys = 2*(isa*N1*N2*N3);
-	    fourn(&datag[psys],nf,3,1);	/* inverse FFT*/
+	    fft_backward(&datag[psys]);
 	  }
 #endif
 
-
-#ifdef USE_FFTW_2 
-
-            for(isa=0;isa<NSV;isa++){
-	      psys = 2*(isa*N1*N2*N3);
-	      
-	      fftwf_execute_dft(plan, (fftwf_complex *) (&datag[psys] + 1),
-				(fftwf_complex *) (&datag[psys] + 1));
-	    }
-#endif	     
-	     
 
 #ifdef USE_CUFFT_2
 
@@ -1011,42 +1029,15 @@ printf("Number Of GPUs %d\n",num_devices);
 	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
 #endif
 
-#ifdef USE_FFTW_3	 
-	  static fftwf_plan plan;
-	  if (!plan) {
-	    plan = fftwf_plan_dft_3d(N1,
-				     N2,
-				     N3,
-				     (fftwf_complex *) (data + 1),
-				     (fftwf_complex *) (data + 1),
-				     FFTW_FORWARD,
-				     FFTW_ESTIMATE);
+#if defined(USE_FOURN_3) || defined(USE_FFTW_3)
+	  
+	  for(isa=0;isa<NSV;isa++){
+	    psys = 2*(isa*N1*N2*N3);
+	    fft_forward(&data[psys]);
 	  }
-#endif				   
-
-
-
-	 
-#ifdef USE_FOURN_3
-		
-		for(isa=0;isa<NSV;isa++){
-		  psys = 2*(isa*N1*N2*N3);
-		  fourn(&data[psys],nf,3,-1);  //FFT
-		}
 
 #endif
 
-
-#ifdef USE_FFTW_3
-
-            for(isa=0;isa<NSV;isa++){
-	      psys = 2*(isa*N1*N2*N3);
-	      
-	      fftwf_execute_dft(plan, (fftwf_complex *) (&data[psys] + 1),
-				(fftwf_complex *) (&data[psys] + 1));
-	    }
-#endif	     
-	     
 
 #ifdef USE_CUFFT_3
 
@@ -1163,59 +1154,16 @@ printf("Number Of GPUs %d\n",num_devices);
 	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
 #endif
 
-#ifdef USE_FFTW_4
-	  static fftwf_plan plan1;
-	  static fftwf_plan plan2;
-	  
-	  if (!plan1) {
-	    plan1 = fftwf_plan_dft_3d(N1,
-				     N2,
-				     N3,
-				     (fftwf_complex *) (data2 + 1),
-				     (fftwf_complex *) (data2 + 1),
-				     FFTW_BACKWARD,
-				     FFTW_ESTIMATE);
-	  }
-	   if (!plan2) {
-	   plan2 = fftwf_plan_dft_3d(N1,
-				     N2,
-				     N3,
-				     (fftwf_complex *) (datag + 1),
-				     (fftwf_complex *) (datag + 1),
-				     FFTW_BACKWARD,
-				     FFTW_ESTIMATE);			     
-				     
-	  }
-#endif				   
-
-
-
-	 
-#ifdef USE_FOURN_4
-            for(isa=0;isa<NS;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-	    fourn(&data2[psys],nf,3,1);	/* inverse FFT*/  
+#if defined(USE_FOURN_4) || defined(USE_FFTW_4)
+	   for(isa=0;isa<NS;isa++) {
+	     psys = 2*(isa*N1*N2*N3);
+	     fft_backward(&data2[psys]);	/* inverse FFT*/  
 	     if (isa<NS) {
-	    fourn(&datag[psys],nf,3,1);	/* inverse FFT*/     
-	  }
-	 } 
+	       fft_backward(&datag[psys]);	/* inverse FFT*/     
+	     }
+	   } 
 #endif
 
-
-#ifdef USE_FFTW_4
-
-            for(isa=0;isa<NSV;isa++){
-	      psys = 2*(isa*N1*N2*N3);
-	      
-	      fftwf_execute_dft(plan1, (fftwf_complex *) (&data2[psys] + 1),
-				(fftwf_complex *) (&data2[psys] + 1));
-	     if (isa<NS) {
-	      fftwf_execute_dft(plan2, (fftwf_complex *) (&datag[psys] + 1),
-				(fftwf_complex *) (&datag[psys] + 1)); 
-	     }   
-	    }
-#endif	     
-	     
 
 #ifdef USE_CUFFT_4
 
@@ -1998,44 +1946,14 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
 	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
 #endif
 
-#ifdef USE_FFTW_5
-	  static fftwf_plan plan;
-	  if (!plan) {
-	    plan = fftwf_plan_dft_3d(N1,
-				     N2,
-				     N3,
-				     (fftwf_complex *) (databeta + 1),
-				     (fftwf_complex *) (databeta + 1),
-				     FFTW_BACKWARD,
-				     FFTW_ESTIMATE);
+#if defined(USE_FOURN_5) || defined(USE_FFTW_5)
+	  for (i=0;i<ND;i++) {
+	    for (j=0;j<ND;j++){
+	      psys = 2*(i*N1*N2*N3+j*N1*N2*N3*ND);
+	      fft_backward(&databeta[psys]);	/* inverse FFT for strain*/
+	    }
 	  }
-#endif				   
-
-
-
-	 
-#ifdef USE_FOURN_5
-           for(i=0;i<ND;i++){
-           for (j=0;j<ND;j++){
-            psys = 2*(i*N1*N2*N3+j*N1*N2*N3*ND);
-            fourn(&databeta[psys],nf,3,1);	/* inverse FFT for strain*/
-                }
-           }
 #endif
-
-
-#ifdef USE_FFTW_5 
-
-           for(i=0;i<ND;i++){
-           for (j=0;j<ND;j++){
-            psys = 2*(i*N1*N2*N3+j*N1*N2*N3*ND);
-	      
-	      fftwf_execute_dft(plan, (fftwf_complex *) (&databeta[psys] + 1),
-				(fftwf_complex *) (&databeta[psys] + 1));
-	    }
-	    }
-#endif	     
-	     
 
 #ifdef USE_CUFFT_5
 
@@ -2819,43 +2737,14 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
 	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
 #endif
 
-#ifdef USE_FFTW_6 
-	   static fftwf_plan plan3;
-	  if (!plan3) {
-	     plan3 = fftwf_plan_dft_3d(N1,
-				      N2,
-				      N3,
-				     (fftwf_complex *) (data2 + 1),
-				     (fftwf_complex *) (data2 + 1),
-				     FFTW_BACKWARD,
-				     FFTW_ESTIMATE);
-	  }
-#endif				   
-
-
-
-	 
-#ifdef USE_FOURN_6 
+#if defined(USE_FOURN_6) || defined(USE_FFTW_6)
           //printf("inverse FFT \n");
-         for(isa=0;isa<NSV;isa++){
-          psys = 2*(isa*N1*N2*N3);
-	    fourn(&data2[psys],nf,3,1);	/* inverse FFT*/
-//	  printf("isa %d \n", isa);
-	}
+	  for(isa=0;isa<NSV;isa++){
+	    psys = 2*(isa*N1*N2*N3);
+	    fft_backward(&data2[psys]);	/* inverse FFT*/
+	    //	  printf("isa %d \n", isa);
+	  }
 #endif
-
-
-#ifdef USE_FFTW_6  
-
-            for(isa=0;isa<NSV;isa++){
-            psys = 2*(isa*N1*N2*N3);
-	      
-	      fftwf_execute_dft(plan3, (fftwf_complex *) (&data2[psys] + 1),
-				(fftwf_complex *) (&data2[psys] + 1));
-	    }
-	     
-#endif	     
-	     
 
 #ifdef USE_CUFFT_6 
 
