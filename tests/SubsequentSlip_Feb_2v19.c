@@ -130,28 +130,60 @@ fft_forward(float *data, int batch)
 {
   int stride = 2 * N1 * N2 * N3;
   int i;
+
+  static double acc_time = 0;
+  static int acc_n = 0;
+  struct timespec now, tmstart;
+  clock_gettime(CLOCK_REALTIME, &tmstart);
   
-  for (i = 0; i < batch; i++) {
 #if defined(USE_FOURN)
+  for (i = 0; i < batch; i++) {
     fft_forward_fourn(data + i * stride);
+  }
 #elif defined(USE_FFTW)
+  for (i = 0; i < batch; i++) {
     fft_forward_fftw(data + i * stride);
+  }
+#elif defined(USE_CUFFT)
+  fft_forward_cufft(data, batch);
 #else
 #error I do not know which FFT to use  
 #endif
+
+  clock_gettime(CLOCK_REALTIME, &now);
+  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
+  acc_n++;
+
+  if (acc_n % 10 == 0) {
+    printf("avg FFT FORWARD time : called %d times %g total time %g\n", acc_n, acc_time / acc_n, acc_time);
   }
 }
 
 static void
 fft_backward(float *data)
 {
+  static double acc_time = 0;
+  static int acc_n = 0;
+  struct timespec now, tmstart;
+  clock_gettime(CLOCK_REALTIME, &tmstart);
+
 #if defined(USE_FOURN)
   fft_backward_fourn(data);
 #elif defined(USE_FFTW)
   fft_backward_fftw(data);
+#elif defined(USE_CUFFT)
+  fft_backward_fftw(data); // ! FIXME
 #else
 #error I do not know which FFT to use  
 #endif
+
+  clock_gettime(CLOCK_REALTIME, &now);
+  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
+  acc_n++;
+
+  if (acc_n % 10 == 0) {
+    printf("avg FFT BACKWARD time : called %d times %g total time %g\n", acc_n, acc_time / acc_n, acc_time);
+  }
 }
 
 
@@ -698,24 +730,8 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-	  
-	  struct timespec now, tmstart;
-	  clock_gettime(CLOCK_REALTIME, &tmstart);
-	  
-	  
-#if defined(USE_FOURN_1) || defined(USE_FFTW_1)
 	  fft_forward(data, NSV);
-#endif
-#ifdef USE_CUFFT_1
-	  fft_forward_cufft(data, NSV);
-#endif
 	    
-	    clock_gettime(CLOCK_REALTIME, &now);
-	    acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
-	    acc_n++;
-
-	    printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
-
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT		  
@@ -774,9 +790,6 @@ printf("Number Of GPUs %d\n",num_devices);
 	  
 	  
 	 
-	  clock_gettime(CLOCK_REALTIME, &tmstart);
- 
-
 #ifdef USE_CUFFT_2
 	  cufftHandle planc2c;
 	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
@@ -805,19 +818,6 @@ printf("Number Of GPUs %d\n",num_devices);
 	                            }
 #endif
   
-	  clock_gettime(CLOCK_REALTIME, &now);
-	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
-	  acc_n++;
-	  
-#ifdef USE_CUFFT_2	  
-	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
-#endif	  
- 
-#if 0									       
-	  getchar();
-#endif
-	  
- 
           #ifdef USE_CUFFT_2 
 	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
 	  #endif 
@@ -1017,57 +1017,7 @@ printf("Number Of GPUs %d\n",num_devices);
 //#define USE_FFTW_3
 
 	  
-	  #ifdef USE_CUFFT_3 
-	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  {
-	  #endif 
-	  
-	  
-	  
-	  clock_gettime(CLOCK_REALTIME, &tmstart);
- 
-
-#ifdef USE_CUFFT_3
-	  cufftHandle planc2c;
-	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
-	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
-#endif
-
-#if defined(USE_FOURN_3) || defined(USE_FFTW_3)
-	  fft_forward(data, NSV);
-#endif
-	  
-
-#ifdef USE_CUFFT_3
-
-            for(isa=0;isa<NSV;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-	    
-	    //             #pragma acc host_data use_device(data)
- 	    {
-	      cufftExecC2C(planc2c, (cufftComplex *)(&data[psys]+1), (cufftComplex *)(&data[psys]+1),
-			   CUFFT_FORWARD);  	   	   
-  	    } //#pragma acc host_data use_device(data)
-  	    
-	                            }
-#endif
-  
-	  clock_gettime(CLOCK_REALTIME, &now);
-	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
-	  acc_n++;
-	  
-#ifdef USE_CUFFT_3	  
-	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
-#endif	  
- 
-#if 0									       
-	  getchar();
-#endif
-	  
- 
-          #ifdef USE_CUFFT_3
-	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  #endif 
+		fft_forward(data, NSV);
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
@@ -1144,9 +1094,6 @@ printf("Number Of GPUs %d\n",num_devices);
 	  
 	  
 	 
-	  clock_gettime(CLOCK_REALTIME, &tmstart);
- 
-
 #ifdef USE_CUFFT_4
 	  cufftHandle planc2c;
 	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
@@ -1188,19 +1135,6 @@ printf("Number Of GPUs %d\n",num_devices);
 	                }
 #endif
   
-	  clock_gettime(CLOCK_REALTIME, &now);
-	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
-	  acc_n++;
-	  
-#ifdef USE_CUFFT_4	  
-	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
-#endif	  
- 
-#if 0									       
-	  getchar();
-#endif
-	  
- 
           #ifdef USE_CUFFT_4 
 	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
 	  #endif 
@@ -1934,11 +1868,6 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
 	  #endif 
 	  
 	  
-	  struct timespec now, tmstart;
-	  clock_gettime(CLOCK_REALTIME, &tmstart);
-          double acc_time = 0;
-          int acc_n = 0;
-
 #ifdef USE_CUFFT_5
 	  cufftHandle planc2c;
 	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
@@ -1970,19 +1899,6 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
 	    }
 #endif
   
-	  clock_gettime(CLOCK_REALTIME, &now);
-	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
-	  acc_n++;
-	  
-#ifdef USE_CUFFT_5	  
-	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
-#endif	  
- 
-#if 0									       
-	  getchar();
-#endif
-	  
- 
           #ifdef USE_CUFFT_5 
 	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
 	  #endif 
@@ -2725,11 +2641,6 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
 	  #endif 
 	  
 	  
-	  struct timespec now, tmstart;
-	  clock_gettime(CLOCK_REALTIME, &tmstart);
-          double acc_time = 0;
-          int acc_n = 0;
-
 #ifdef USE_CUFFT_6 
 	  cufftHandle planc2c;
 	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
@@ -2760,19 +2671,6 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
 	     
 #endif
   
-	  clock_gettime(CLOCK_REALTIME, &now);
-	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
-	  acc_n++;
-	  
-#ifdef USE_CUFFT_6 	  
-	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
-#endif	  
- 
-#if 0									       
-	  getchar();
-#endif
-	  
- 
           #ifdef USE_CUFFT_6  
 	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
 	  #endif 
