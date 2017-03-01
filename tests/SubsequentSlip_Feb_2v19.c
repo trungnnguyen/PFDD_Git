@@ -108,13 +108,12 @@ fft_forward_cufft(float *data, int batch)
     cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
   }
 
-  float *_data = data + 1;
-#pragma acc data copy(_data[0:stride*batch])
-#pragma acc host_data use_device(_data)
+#pragma acc data copy(data[0:stride*batch])
+#pragma acc host_data use_device(data)
   {
     for (i = 0; i < batch; i++) {
-      int rc = cufftExecC2C(planc2c, (cufftComplex *)(_data + i * stride),
-			    (cufftComplex *)(_data + i * stride),
+      int rc = cufftExecC2C(planc2c, (cufftComplex *)(data + i * stride),
+			    (cufftComplex *)(data + i * stride),
 			    CUFFT_FORWARD);
       assert(rc == CUFFT_SUCCESS);
     }
@@ -160,11 +159,11 @@ fft_forward(float *data, int batch)
   
 #if defined(USE_FOURN)
   for (i = 0; i < batch; i++) {
-    fft_forward_fourn(data + i * stride);
+    fft_forward_fourn(data + i * stride - 1);
   }
 #elif defined(USE_FFTW)
   for (i = 0; i < batch; i++) {
-    fft_forward_fftw(data + i * stride);
+    fft_forward_fftw(data + i * stride - 1);
   }
 #elif defined(USE_CUFFT)
   fft_forward_cufft(data, batch);
@@ -756,7 +755,7 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-	  fft_forward(data, NSV);
+	  fft_forward(data + 1, NSV);
 	    
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
@@ -995,7 +994,7 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-		fft_forward(data, NSV);
+		fft_forward(data + 1, NSV);
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
