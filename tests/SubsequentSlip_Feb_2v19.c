@@ -154,25 +154,34 @@ fft_forward(float *data, int batch)
   acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
   acc_n++;
 
-  if (acc_n % 10 == 0) {
+  if (0 && acc_n % 10 == 0) {
     printf("avg FFT FORWARD time : called %d times %g total time %g\n", acc_n, acc_time / acc_n, acc_time);
   }
 }
 
 static void
-fft_backward(float *data)
+fft_backward(float *data, int batch)
 {
+  int stride = 2 * N1 * N2 * N3;
+  int i;
+
   static double acc_time = 0;
   static int acc_n = 0;
   struct timespec now, tmstart;
   clock_gettime(CLOCK_REALTIME, &tmstart);
 
 #if defined(USE_FOURN)
-  fft_backward_fourn(data);
+  for (i = 0; i < batch; i++) {
+    fft_backward_fourn(data + i * stride);
+  }
 #elif defined(USE_FFTW)
-  fft_backward_fftw(data);
+  for (i = 0; i < batch; i++) {
+    fft_backward_fftw(data + i * stride);
+  }
 #elif defined(USE_CUFFT)
-  fft_backward_fftw(data); // ! FIXME
+  for (i = 0; i < batch; i++) {
+    fft_backward_fftw(data + i * stride); // ! FIXME
+  }
 #else
 #error I do not know which FFT to use  
 #endif
@@ -181,7 +190,7 @@ fft_backward(float *data)
   acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
   acc_n++;
 
-  if (acc_n % 10 == 0) {
+  if (0 && acc_n % 10 == 0) {
     printf("avg FFT BACKWARD time : called %d times %g total time %g\n", acc_n, acc_time / acc_n, acc_time);
   }
 }
@@ -797,10 +806,7 @@ printf("Number Of GPUs %d\n",num_devices);
 #endif
 
 #if defined(USE_FOURN_2) || defined(USE_FFTW_2)
-	  for(isa=0;isa<NS;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-	    fft_backward(&datag[psys]);
-	  }
+	  fft_backward(datag, NS);
 #endif
 
 
@@ -1101,13 +1107,8 @@ printf("Number Of GPUs %d\n",num_devices);
 #endif
 
 #if defined(USE_FOURN_4) || defined(USE_FFTW_4)
-	   for(isa=0;isa<NS;isa++) {
-	     psys = 2*(isa*N1*N2*N3);
-	     fft_backward(&data2[psys]);	/* inverse FFT*/  
-	     if (isa<NS) {
-	       fft_backward(&datag[psys]);	/* inverse FFT*/     
-	     }
-	   } 
+	  fft_backward(data2, NS);	/* inverse FFT*/  
+	  fft_backward(datag, NS);	/* inverse FFT*/  
 #endif
 
 
@@ -1875,12 +1876,7 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
 #endif
 
 #if defined(USE_FOURN_5) || defined(USE_FFTW_5)
-	  for (i=0;i<ND;i++) {
-	    for (j=0;j<ND;j++){
-	      psys = 2*(i*N1*N2*N3+j*N1*N2*N3*ND);
-	      fft_backward(&databeta[psys]);	/* inverse FFT for strain*/
-	    }
-	  }
+	  fft_backward(&databeta[psys], ND*ND);	/* inverse FFT for strain*/
 #endif
 
 #ifdef USE_CUFFT_5
@@ -2648,12 +2644,7 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
 #endif
 
 #if defined(USE_FOURN_6) || defined(USE_FFTW_6)
-          //printf("inverse FFT \n");
-	  for(isa=0;isa<NSV;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-	    fft_backward(&data2[psys]);	/* inverse FFT*/
-	    //	  printf("isa %d \n", isa);
-	  }
+	  fft_backward(data2, NSV);	/* inverse FFT*/
 #endif
 
 #ifdef USE_CUFFT_6 
