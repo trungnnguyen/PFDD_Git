@@ -110,17 +110,39 @@ fft_forward_cufft(float *data, int batch)
 
   float *_data = data + 1;
 #pragma acc data copy(_data[0:stride*batch])
+#pragma acc host_data use_device(_data)
   {
     for (i = 0; i < batch; i++) {
-#pragma acc host_data use_device(_data)
-      {
-	int rc = cufftExecC2C(planc2c, (cufftComplex *)(_data + i * stride),
-			      (cufftComplex *)(_data + i * stride),
-			      CUFFT_FORWARD);
-	assert(rc == CUFFT_SUCCESS);
-      } //#pragma acc host_data use_device(data)
+      int rc = cufftExecC2C(planc2c, (cufftComplex *)(_data + i * stride),
+			    (cufftComplex *)(_data + i * stride),
+			    CUFFT_FORWARD);
+      assert(rc == CUFFT_SUCCESS);
     }
-  } // #pragma acc data copy(_data[0:stride*batch])
+  }
+}
+
+static void
+fft_backward_cufft(float *data, int batch)
+{
+  int stride = 2 * N1 * N2 * N3;
+  int i;
+
+  static cufftHandle planc2c;
+  if (!planc2c) {
+    cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
+  }
+
+  float *_data = data + 1;
+#pragma acc data copy(_data[0:stride*batch])
+#pragma acc host_data use_device(_data)
+  {
+    for (i = 0; i < batch; i++) {
+      int rc = cufftExecC2C(planc2c, (cufftComplex *)(_data + i * stride),
+			    (cufftComplex *)(_data + i * stride),
+			    CUFFT_INVERSE);
+      assert(rc == CUFFT_SUCCESS);
+    }
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -179,9 +201,7 @@ fft_backward(float *data, int batch)
     fft_backward_fftw(data + i * stride);
   }
 #elif defined(USE_CUFFT)
-  for (i = 0; i < batch; i++) {
-    fft_backward_fftw(data + i * stride); // ! FIXME
-  }
+  fft_backward_cufft(data, batch);
 #else
 #error I do not know which FFT to use  
 #endif
@@ -338,9 +358,6 @@ printf("Number Of GPUs %d\n",num_devices);
     
     #define REAL 0
     #define IMAG 1
-    //float *data_CUFFT;
-    //data_CUFFT =  malloc((2*(NSV)*(N1)*(N2)*(N3)+1)*sizeof(float));
-    //    fftwf_complex *data_CUFFT = malloc( (NSV)*(N1)*(N2)*(N3)*sizeof(fftwf_complex));
     
   /* print files */
     of2 = fopen("stress-strain.dat","w");
@@ -786,47 +803,7 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
-
-//#define USE_FOURN_2	  
-//#define USE_CUFFT_2
-//#define USE_FFTW_2
-
-	  
-	  #ifdef USE_CUFFT_2 
-	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  {
-	  #endif 
-	  
-	  
-	 
-#ifdef USE_CUFFT_2
-	  cufftHandle planc2c;
-	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
-	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
-#endif
-
-#if defined(USE_FOURN_2) || defined(USE_FFTW_2)
 	  fft_backward(datag, NS);
-#endif
-
-
-#ifdef USE_CUFFT_2
-
-            for(isa=0;isa<NSV;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-	    
-	    //             #pragma acc host_data use_device(data)
- 	    {
-	      cufftExecC2C(planc2c, (cufftComplex *)(&datag[psys]+1), (cufftComplex *)(&datag[psys]+1),
-			   CUFFT_BACKWARD);  	   	   
-  	    } //#pragma acc host_data use_device(data)
-  	    
-	                            }
-#endif
-  
-          #ifdef USE_CUFFT_2 
-	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  #endif 
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
@@ -1018,11 +995,6 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-//#define USE_FOURN_3	  
-//#define USE_CUFFT_3
-//#define USE_FFTW_3
-
-	  
 		fft_forward(data, NSV);
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
@@ -1088,58 +1060,9 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-//#define USE_FOURN_4	  
-//#define USE_CUFFT_4
-//#define USE_FFTW_4
-
-	  
-	  #ifdef USE_CUFFT_4 
-	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  {
-	  #endif 
-	  
-	  
-	 
-#ifdef USE_CUFFT_4
-	  cufftHandle planc2c;
-	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
-	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
-#endif
-
-#if defined(USE_FOURN_4) || defined(USE_FFTW_4)
 	  fft_backward(data2, NS);	/* inverse FFT*/  
 	  fft_backward(datag, NS);	/* inverse FFT*/  
-#endif
-
-
-#ifdef USE_CUFFT_4
-
-            for(isa=0;isa<NSV;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-	    
-	    //             #pragma acc host_data use_device(data)
- 	    {
-	      cufftExecC2C(planc2c, (cufftComplex *)(&data2[psys]+1), (cufftComplex *)(&data2[psys]+1),
-			   CUFFT_BACKWARD);  	   	   
-  	    } //#pragma acc host_data use_device(data)
-  	    
-  	    
-  	    if (isa<NS) {
-	      
-  	    //             #pragma acc host_data use_device(data)
- 	    {
-	      cufftExecC2C(planc2c, (cufftComplex *)(&datag[psys]+1), (cufftComplex *)(&datag[psys]+1),
-			   CUFFT_BACKWARD);  	   	   
-  	    } //#pragma acc host_data use_device(data)
-  	    
-  	    
-	                }
-#endif
   
-          #ifdef USE_CUFFT_4 
-	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  #endif 
-	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT    
@@ -1857,47 +1780,7 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
-
-//#define USE_FOURN_5	  
-//#define USE_CUFFT_5
-//#define USE_FFTW_5
-
-	  
-	  #ifdef USE_CUFFT_5 
-	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  {
-	  #endif 
-	  
-	  
-#ifdef USE_CUFFT_5
-	  cufftHandle planc2c;
-	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
-	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
-#endif
-
-#if defined(USE_FOURN_5) || defined(USE_FFTW_5)
-	  fft_backward(&databeta[psys], ND*ND);	/* inverse FFT for strain*/
-#endif
-
-#ifdef USE_CUFFT_5
-
-            for(i=0;i<ND;i++){
-            for (j=0;j<ND;j++){
-            psys = 2*(i*N1*N2*N3+j*N1*N2*N3*ND);
-	    
-	    //             #pragma acc host_data use_device(data)
- 	    {
-	      cufftExecC2C(planc2c, (cufftComplex *)(&databeta[psys]+1), (cufftComplex *)(&databeta[psys]+1),
-			   CUFFT_BACKWARD);  	   	   
-  	    } //#pragma acc host_data use_device(data)
-  	    
-	    }
-	    }
-#endif
-  
-          #ifdef USE_CUFFT_5 
-	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  #endif 
+	  fft_backward(databeta, ND*ND);	/* inverse FFT for strain*/
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
@@ -2626,45 +2509,7 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-//#define USE_FOURN_6	  
-//#define USE_CUFFT_6
-//#define USE_FFTW_6
-
-	  
-	  #ifdef USE_CUFFT_6 
-	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  {
-	  #endif 
-	  
-	  
-#ifdef USE_CUFFT_6 
-	  cufftHandle planc2c;
-	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
-	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
-#endif
-
-#if defined(USE_FOURN_6) || defined(USE_FFTW_6)
 	  fft_backward(data2, NSV);	/* inverse FFT*/
-#endif
-
-#ifdef USE_CUFFT_6 
-
-            for(isa=0;isa<NSV;isa++){
-            psys = 2*(isa*N1*N2*N3);
-	    
-	    //             #pragma acc host_data use_device(data)
- 	    {
-	      cufftExecC2C(planc2c, (cufftComplex *)(&data2[psys]+1), (cufftComplex *)(&data2[psys]+1),
-			   CUFFT_BACKWARD);  	   	   
-  	    } //#pragma acc host_data use_device(data)
-  	    
-	    }
-	     
-#endif
-  
-          #ifdef USE_CUFFT_6  
-	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  #endif 
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
