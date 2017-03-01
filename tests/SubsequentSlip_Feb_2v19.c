@@ -36,6 +36,9 @@
 #define NP2 1
 #define pi 3.141592654
 
+// ----------------------------------------------------------------------
+// FOURN
+
 void fourn(float *, int nn[4], int, int);  //Fourier Transform
 
 static void
@@ -51,6 +54,9 @@ fft_backward_fourn(float *data)
   int nf[4] = { 0, N1, N2, N3 };
   fourn(data, nf, 3, 1);
 }
+
+// ----------------------------------------------------------------------
+// FFTW
 
 static void
 fft_forward_fftw(float *data)
@@ -87,6 +93,37 @@ fft_backward_fftw(float *data)
   fftwf_execute_dft(plan, (fftwf_complex *) (data + 1),
 		    (fftwf_complex *) (data + 1));
 }
+
+// ----------------------------------------------------------------------
+// CUFFT
+
+static void
+fft_forward_cufft(float *data, int batch)
+{
+  int stride = 2 * N1 * N2 * N3;
+  int i;
+
+  static cufftHandle planc2c;
+  if (!planc2c) {
+    cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
+  }
+
+  float *_data = data + 1;
+#pragma acc data copy(_data[0:stride*batch])
+  {
+    for (i = 0; i < batch; i++) {
+#pragma acc host_data use_device(_data)
+      {
+	int rc = cufftExecC2C(planc2c, (cufftComplex *)(_data + i * stride),
+			      (cufftComplex *)(_data + i * stride),
+			      CUFFT_FORWARD);
+	assert(rc == CUFFT_SUCCESS);
+      } //#pragma acc host_data use_device(data)
+    }
+  } // #pragma acc data copy(_data[0:stride*batch])
+}
+
+// ----------------------------------------------------------------------
 
 static void
 fft_forward(float *data, int batch)
@@ -670,24 +707,7 @@ printf("Number Of GPUs %d\n",num_devices);
 	  fft_forward(data, NSV);
 #endif
 #ifdef USE_CUFFT_1
-	    
-	    static cufftHandle planc2c;
-	    if (!planc2c) {
-	      cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
-	    }
-
-#pragma acc data copy(_data[0:2*(NSV)*(N1)*(N2)*(N3)])
-	    {
-	      for(isa=0;isa<NSV;isa++){
-		psys = 2*(isa*N1*N2*N3);
-#pragma acc host_data use_device(_data)
-		{
-		  int rc = cufftExecC2C(planc2c, (cufftComplex *)(&_data[psys]), (cufftComplex *)(&_data[psys]),
-					CUFFT_FORWARD);
-		  assert(rc == CUFFT_SUCCESS);
-		} //#pragma acc host_data use_device(data)
-	      }
-	    } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)])
+	  fft_forward_cufft(data, NSV);
 #endif
 	    
 	    clock_gettime(CLOCK_REALTIME, &now);
@@ -1016,7 +1036,7 @@ printf("Number Of GPUs %d\n",num_devices);
 #if defined(USE_FOURN_3) || defined(USE_FFTW_3)
 	  fft_forward(data, NSV);
 #endif
-
+	  
 
 #ifdef USE_CUFFT_3
 
