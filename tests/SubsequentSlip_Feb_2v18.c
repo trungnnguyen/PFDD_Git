@@ -575,10 +575,9 @@ printf("Number Of GPUs %d\n",num_devices);
 	  vflag=0;
 
 
-	  
-	  //#define USE_FOURN	  
-#define USE_CUFFT
-//#define USE_FFTW
+// #define USE_FOURN	  
+//#define USE_CUFFT
+#define USE_FFTW
 
 	  
 	  #ifdef USE_CUFFT 

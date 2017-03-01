@@ -174,13 +174,11 @@ printf("Number Of GPUs %d\n",num_devices);
   
     
     
-    typedef float fftw_complex[2];
-    
     #define REAL 0
     #define IMAG 1
     //float *data_CUFFT;
     //data_CUFFT =  malloc((2*(NSV)*(N1)*(N2)*(N3)+1)*sizeof(float));
-    fftw_complex*data_CUFFT = malloc( (NSV)*(N1)*(N2)*(N3)*sizeof(fftw_complex));
+    fftwf_complex *data_CUFFT = malloc( (NSV)*(N1)*(N2)*(N3)*sizeof(fftwf_complex));
     
   /* print files */
     of2 = fopen("stress-strain.dat","w");
@@ -608,8 +606,8 @@ printf("Number Of GPUs %d\n",num_devices);
 	    plan = fftwf_plan_dft_3d(N1,
 				     N2,
 				     N3,
-				     (fftw_complex *) (data + 1),
-				     (fftw_complex *) (data + 1),
+				     (fftwf_complex *) (data + 1),
+				     (fftwf_complex *) (data + 1),
 				     FFTW_FORWARD,
 				     FFTW_ESTIMATE);
 	  }
@@ -632,8 +630,8 @@ printf("Number Of GPUs %d\n",num_devices);
             for(isa=0;isa<NSV;isa++){
 	      psys = 2*(isa*N1*N2*N3);
 	      
-	      fftwf_execute_dft(plan, (fftw_complex *) (&data[psys] + 1),
-				(fftw_complex *) (&data[psys] + 1));
+	      fftwf_execute_dft(plan, (fftwf_complex *) (&data[psys] + 1),
+				(fftwf_complex *) (&data[psys] + 1));
 	    }
 #endif	     
 	     
@@ -742,8 +740,8 @@ printf("Number Of GPUs %d\n",num_devices);
 	    plan = fftwf_plan_dft_3d(N1,
 				     N2,
 				     N3,
-				     (fftw_complex *) (datag + 1),
-				     (fftw_complex *) (datag + 1),
+				     (fftwf_complex *) (datag + 1),
+				     (fftwf_complex *) (datag + 1),
 				     FFTW_BACKWARD,
 				     FFTW_ESTIMATE);
 	  }
@@ -765,8 +763,8 @@ printf("Number Of GPUs %d\n",num_devices);
             for(isa=0;isa<NSV;isa++){
 	      psys = 2*(isa*N1*N2*N3);
 	      
-	      fftwf_execute_dft(plan, (fftw_complex *) (&datag[psys] + 1),
-				(fftw_complex *) (&datag[psys] + 1));
+	      fftwf_execute_dft(plan, (fftwf_complex *) (&datag[psys] + 1),
+				(fftwf_complex *) (&datag[psys] + 1));
 	    }
 #endif	     
 	     
@@ -1019,8 +1017,8 @@ printf("Number Of GPUs %d\n",num_devices);
 	    plan = fftwf_plan_dft_3d(N1,
 				     N2,
 				     N3,
-				     (fftw_complex *) (data + 1),
-				     (fftw_complex *) (data + 1),
+				     (fftwf_complex *) (data + 1),
+				     (fftwf_complex *) (data + 1),
 				     FFTW_FORWARD,
 				     FFTW_ESTIMATE);
 	  }
@@ -1044,8 +1042,8 @@ printf("Number Of GPUs %d\n",num_devices);
             for(isa=0;isa<NSV;isa++){
 	      psys = 2*(isa*N1*N2*N3);
 	      
-	      fftwf_execute_dft(plan, (fftw_complex *) (&data[psys] + 1),
-				(fftw_complex *) (&data[psys] + 1));
+	      fftwf_execute_dft(plan, (fftwf_complex *) (&data[psys] + 1),
+				(fftwf_complex *) (&data[psys] + 1));
 	    }
 #endif	     
 	     
@@ -1173,8 +1171,8 @@ printf("Number Of GPUs %d\n",num_devices);
 	    plan1 = fftwf_plan_dft_3d(N1,
 				     N2,
 				     N3,
-				     (fftw_complex *) (data2 + 1),
-				     (fftw_complex *) (data2 + 1),
+				     (fftwf_complex *) (data2 + 1),
+				     (fftwf_complex *) (data2 + 1),
 				     FFTW_BACKWARD,
 				     FFTW_ESTIMATE);
 	  }
@@ -1182,8 +1180,8 @@ printf("Number Of GPUs %d\n",num_devices);
 	   plan2 = fftwf_plan_dft_3d(N1,
 				     N2,
 				     N3,
-				     (fftw_complex *) (datag + 1),
-				     (fftw_complex *) (datag + 1),
+				     (fftwf_complex *) (datag + 1),
+				     (fftwf_complex *) (datag + 1),
 				     FFTW_BACKWARD,
 				     FFTW_ESTIMATE);			     
 				     
@@ -1209,11 +1207,11 @@ printf("Number Of GPUs %d\n",num_devices);
             for(isa=0;isa<NSV;isa++){
 	      psys = 2*(isa*N1*N2*N3);
 	      
-	      fftwf_execute_dft(plan1, (fftw_complex *) (&data2[psys] + 1),
-				(fftw_complex *) (&data2[psys] + 1));
+	      fftwf_execute_dft(plan1, (fftwf_complex *) (&data2[psys] + 1),
+				(fftwf_complex *) (&data2[psys] + 1));
 	     if (isa<NS) {
-	      fftwf_execute_dft(plan2, (fftw_complex *) (&datag[psys] + 1),
-				(fftw_complex *) (&datag[psys] + 1)); 
+	      fftwf_execute_dft(plan2, (fftwf_complex *) (&datag[psys] + 1),
+				(fftwf_complex *) (&datag[psys] + 1)); 
 	     }   
 	    }
 #endif	     
@@ -2006,8 +2004,8 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
 	    plan = fftwf_plan_dft_3d(N1,
 				     N2,
 				     N3,
-				     (fftw_complex *) (databeta + 1),
-				     (fftw_complex *) (databeta + 1),
+				     (fftwf_complex *) (databeta + 1),
+				     (fftwf_complex *) (databeta + 1),
 				     FFTW_BACKWARD,
 				     FFTW_ESTIMATE);
 	  }
@@ -2032,8 +2030,8 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
            for (j=0;j<ND;j++){
             psys = 2*(i*N1*N2*N3+j*N1*N2*N3*ND);
 	      
-	      fftwf_execute_dft(plan, (fftw_complex *) (&databeta[psys] + 1),
-				(fftw_complex *) (&databeta[psys] + 1));
+	      fftwf_execute_dft(plan, (fftwf_complex *) (&databeta[psys] + 1),
+				(fftwf_complex *) (&databeta[psys] + 1));
 	    }
 	    }
 #endif	     
@@ -2585,8 +2583,7 @@ void initial(float * data, double * xi, double * xi_bc, double setobs, int * xi_
   int ir, na0, na, na1,nad1,nad2, nao, is, ism, iss, i, j, k,rr;
   double r, rmin1,rmin2, r1, r2,r3, r4, r5, r6,rcylin, t1,yita;
     
-  typedef float fftw_complex[2];
-  fftw_complex*data_CUFFT = malloc( (NSV)*(N1)*(N2)*(N3)*sizeof(fftw_complex));
+  fftwf_complex *data_CUFFT = malloc( (NSV)*(N1)*(N2)*(N3)*sizeof(fftwf_complex));
   
   rmin1 = (double)N1/4.0-3.0;//(double)N1/6.0;
   rmin2 = (double)N1/6.0;
@@ -2828,8 +2825,8 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
 	     plan3 = fftwf_plan_dft_3d(N1,
 				      N2,
 				      N3,
-				     (fftw_complex *) (data2 + 1),
-				     (fftw_complex *) (data2 + 1),
+				     (fftwf_complex *) (data2 + 1),
+				     (fftwf_complex *) (data2 + 1),
 				     FFTW_BACKWARD,
 				     FFTW_ESTIMATE);
 	  }
@@ -2853,8 +2850,8 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
             for(isa=0;isa<NSV;isa++){
             psys = 2*(isa*N1*N2*N3);
 	      
-	      fftwf_execute_dft(plan3, (fftw_complex *) (&data2[psys] + 1),
-				(fftw_complex *) (&data2[psys] + 1));
+	      fftwf_execute_dft(plan3, (fftwf_complex *) (&data2[psys] + 1),
+				(fftwf_complex *) (&data2[psys] + 1));
 	    }
 	     
 #endif	     
