@@ -45,7 +45,7 @@ static void
 fft_forward_fourn(float *data)
 {
   int nf[4] = { 0, N1, N2, N3 };
-  fourn(data, nf, 3, -1);
+  fourn(data - 1, nf, 3, -1);
 }
 
 static void
@@ -66,14 +66,14 @@ fft_forward_fftw(float *data)
     plan = fftwf_plan_dft_3d(N1,
 			     N2,
 			     N3,
-			     (fftwf_complex *) (data + 1),
-			     (fftwf_complex *) (data + 1),
+			     (fftwf_complex *) data,
+			     (fftwf_complex *) data,
 			     FFTW_FORWARD,
 			     FFTW_ESTIMATE);
   }
 
-  fftwf_execute_dft(plan, (fftwf_complex *) (data + 1),
-		    (fftwf_complex *) (data + 1));
+  fftwf_execute_dft(plan, (fftwf_complex *) data,
+		    (fftwf_complex *) data);
 }
 
 static void
@@ -159,11 +159,11 @@ fft_forward(float *data, int batch)
   
 #if defined(USE_FOURN)
   for (i = 0; i < batch; i++) {
-    fft_forward_fourn(data + i * stride - 1);
+    fft_forward_fourn(data + i * stride);
   }
 #elif defined(USE_FFTW)
   for (i = 0; i < batch; i++) {
-    fft_forward_fftw(data + i * stride - 1);
+    fft_forward_fftw(data + i * stride);
   }
 #elif defined(USE_CUFFT)
   fft_forward_cufft(data, batch);
