@@ -17,7 +17,7 @@
 #include <openacc.h> 
 #include <cufft.h> 
 #include <fftw3.h>
- 
+#include <assert.h> 
 
 
 #define MT 1	    //Material type: 1 - isotropic; 2 - cubic
@@ -89,15 +89,20 @@ fft_backward_fftw(float *data)
 }
 
 static void
-fft_forward(float *data)
+fft_forward(float *data, int batch)
 {
+  int stride = 2 * N1 * N2 * N3;
+  int i;
+  
+  for (i = 0; i < batch; i++) {
 #if defined(USE_FOURN)
-  fft_forward_fourn(data);
+    fft_forward_fourn(data + i * stride);
 #elif defined(USE_FFTW)
-  fft_forward_fftw(data);
+    fft_forward_fftw(data + i * stride);
 #else
 #error I do not know which FFT to use  
 #endif
+  }
 }
 
 static void
@@ -135,6 +140,7 @@ int main(void){
     double eps[NS][ND][ND],sigma[N1][N2][N3][ND][ND],epsv[NV][ND][ND],q[N1][N2][N3], avesigma[ND][ND], avepsd[ND][ND], avepst[N1][N2][N3][ND][ND], aveps[ND][ND];
     double xn[NS][ND], xb[NS][ND], tau[N1][N2][N3][NS], rho2[NS],interface_n[ND],slipdirection[ND];
     double *fx, *fy, *fz, *slr, *sli, *xi, *xi_sum, *xi_bc, *sigmal, *penetrationstress,*penetrationstress2;
+    float *_data;
     float *data, *data2,*datag, *databeta, *dataeps, *dataepsd, *datasigma, *sigmav;
     double *f, *r;
     double L, d1, d2, d3, dt, size,size3,ir,beta2;
@@ -219,8 +225,9 @@ printf("Number Of GPUs %d\n",num_devices);
        
     sizexi = 2*(NSV)*(N1)*(N2)*(N3);
     sizexi_bc = 2*(NSV)*(N1)*(N2)*(N3);
-    
-    data =  malloc((2*(NSV)*(N1)*(N2)*(N3)+1)*sizeof(float));
+
+    _data =  malloc((2*(NSV)*(N1)*(N2)*(N3))*sizeof(float));
+    data = _data - 1;
     data2 =  malloc((2*(NSV)*(N1)*(N2)*(N3)+1)*sizeof(float));
     datag=malloc((2*(NS*N1*N2*N3)+1)*sizeof(float));
     databeta = malloc(2*((ND)*(ND)*(N1)*(N2)*(N3)+1)*sizeof(float));
@@ -255,7 +262,7 @@ printf("Number Of GPUs %d\n",num_devices);
     #define IMAG 1
     //float *data_CUFFT;
     //data_CUFFT =  malloc((2*(NSV)*(N1)*(N2)*(N3)+1)*sizeof(float));
-    fftwf_complex *data_CUFFT = malloc( (NSV)*(N1)*(N2)*(N3)*sizeof(fftwf_complex));
+    //    fftwf_complex *data_CUFFT = malloc( (NSV)*(N1)*(N2)*(N3)*sizeof(fftwf_complex));
     
   /* print files */
     of2 = fopen("stress-strain.dat","w");
@@ -515,8 +522,6 @@ printf("Number Of GPUs %d\n",num_devices);
     
   
 
-     
-  
   
     if(choice==2){
       fread(xi,sizeof(double),sizexi,ofxi);
@@ -656,62 +661,44 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-	  #ifdef USE_CUFFT_1 
-	  #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  {
-	  #endif 
-	  
 	  
 	  struct timespec now, tmstart;
 	  clock_gettime(CLOCK_REALTIME, &tmstart);
- 
-
-#ifdef USE_CUFFT_1
-	  cufftHandle planc2c;
-	  cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
-	  cufftSetCompatibilityMode(planc2c, CUFFT_COMPATIBILITY_NATIVE);
-#endif
-
-	 
+	  
+	  
 #if defined(USE_FOURN_1) || defined(USE_FFTW_1)
             for(isa=0;isa<NSV;isa++){
 	      psys = 2*(isa*N1*N2*N3);
-	      fft_forward(&data[psys]);
+	      fft_forward(&data[psys], 1);
 	    }
 #endif
-
-
 #ifdef USE_CUFFT_1
-
-            for(isa=0;isa<NSV;isa++){
-	    psys = 2*(isa*N1*N2*N3);
 	    
-	    //             #pragma acc host_data use_device(data)
- 	    {
-	      cufftExecC2C(planc2c, (cufftComplex *)(&data[psys]+1), (cufftComplex *)(&data[psys]+1),
-			   CUFFT_FORWARD);  	   	   
-  	    } //#pragma acc host_data use_device(data)
-  	    
-	                            }
+	    static cufftHandle planc2c;
+	    if (!planc2c) {
+	      cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
+	    }
+
+#pragma acc data copy(_data[0:2*(NSV)*(N1)*(N2)*(N3)])
+	    {
+	      for(isa=0;isa<NSV;isa++){
+		psys = 2*(isa*N1*N2*N3);
+#pragma acc host_data use_device(_data)
+		{
+		  int rc = cufftExecC2C(planc2c, (cufftComplex *)(&_data[psys]), (cufftComplex *)(&_data[psys]),
+					CUFFT_FORWARD);
+		  assert(rc == CUFFT_SUCCESS);
+		} //#pragma acc host_data use_device(data)
+	      }
+	    } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)])
 #endif
-  
-	  clock_gettime(CLOCK_REALTIME, &now);
-	  acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
-	  acc_n++;
-	  
-#ifdef USE_CUFFT_1	  
-	  printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
-#endif	  
- 
-#if 0									       
-	  getchar();
-#endif
-	  
- 
-          #ifdef USE_CUFFT_1 
-	  } // #pragma acc data copy(data[0:2*(NSV)*(N1)*(N2)*(N3)+1])
-	  #endif 
-	  
+	    
+	    clock_gettime(CLOCK_REALTIME, &now);
+	    acc_time += (now.tv_sec+now.tv_nsec*1e-9) - (tmstart.tv_sec+tmstart.tv_nsec*1e-9);
+	    acc_n++;
+
+	    printf("avg CUFFT time : %g total time %g\n", acc_time / acc_n, acc_time);
+
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT		  
@@ -1033,7 +1020,7 @@ printf("Number Of GPUs %d\n",num_devices);
 	  
 	  for(isa=0;isa<NSV;isa++){
 	    psys = 2*(isa*N1*N2*N3);
-	    fft_forward(&data[psys]);
+	    fft_forward(&data[psys], 1);
 	  }
 
 #endif
@@ -1367,7 +1354,7 @@ printf("Number Of GPUs %d\n",num_devices);
     }/*end itp2*/
     
    
-    free(data);
+    free(_data);
     free(data2);
     free(datag);
     free(databeta);
