@@ -667,10 +667,7 @@ printf("Number Of GPUs %d\n",num_devices);
 	  
 	  
 #if defined(USE_FOURN_1) || defined(USE_FFTW_1)
-            for(isa=0;isa<NSV;isa++){
-	      psys = 2*(isa*N1*N2*N3);
-	      fft_forward(&data[psys], 1);
-	    }
+	  fft_forward(data, NSV);
 #endif
 #ifdef USE_CUFFT_1
 	    
@@ -1017,12 +1014,7 @@ printf("Number Of GPUs %d\n",num_devices);
 #endif
 
 #if defined(USE_FOURN_3) || defined(USE_FFTW_3)
-	  
-	  for(isa=0;isa<NSV;isa++){
-	    psys = 2*(isa*N1*N2*N3);
-	    fft_forward(&data[psys], 1);
-	  }
-
+	  fft_forward(data, NSV);
 #endif
 
 
