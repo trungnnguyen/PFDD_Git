@@ -1,0 +1,4660 @@
+Number Of GPUs 4
+This is an isotropic material.
+Material constants for material 0
+C11 = 1.684000e+11, C12 = 1.214000e+11, C44 = 2.350000e+10Material constants for material 1
+C11 = 2.465000e+11, C12 = 1.473000e+11, C44 = 4.960000e+10This is an isotropic material.
+core energy C = 0.038899 
+Amatrix for material 0
+
+
+
+Amatrix for material 1
+1.000000 0.000000 0.000000 
+0.000000 1.000000 0.000000 
+0.000000 0.000000 1.000000 
+mup is 0.000000e+00
+Amatrix for material 0
+
+
+
+in dSmat check: cp[0][0][0][0] for material 0 is 1.684000e+11
+in dSmat check: cp[0][0][0][1] for material 0 is 0.000000e+00
+in dSmat check: cp[0][0][0][2] for material 0 is 0.000000e+00
+in dSmat check: cp[0][0][1][0] for material 0 is 0.000000e+00
+in dSmat check: cp[0][0][1][1] for material 0 is 1.214000e+11
+in dSmat check: cp[0][0][1][2] for material 0 is 0.000000e+00
+in dSmat check: cp[0][0][2][0] for material 0 is 0.000000e+00
+in dSmat check: cp[0][0][2][1] for material 0 is 0.000000e+00
+in dSmat check: cp[0][0][2][2] for material 0 is 1.214000e+11
+in dSmat check: cp[0][1][0][0] for material 0 is 0.000000e+00
+in dSmat check: cp[0][1][0][1] for material 0 is 2.350000e+10
+in dSmat check: cp[0][1][0][2] for material 0 is 0.000000e+00
+in dSmat check: cp[0][1][1][0] for material 0 is 2.350000e+10
+in dSmat check: cp[0][1][1][1] for material 0 is 0.000000e+00
+in dSmat check: cp[0][1][1][2] for material 0 is 0.000000e+00
+in dSmat check: cp[0][1][2][0] for material 0 is 0.000000e+00
+in dSmat check: cp[0][1][2][1] for material 0 is 0.000000e+00
+in dSmat check: cp[0][1][2][2] for material 0 is 0.000000e+00
+in dSmat check: cp[0][2][0][0] for material 0 is 0.000000e+00
+in dSmat check: cp[0][2][0][1] for material 0 is 0.000000e+00
+in dSmat check: cp[0][2][0][2] for material 0 is 2.350000e+10
+in dSmat check: cp[0][2][1][0] for material 0 is 0.000000e+00
+in dSmat check: cp[0][2][1][1] for material 0 is 0.000000e+00
+in dSmat check: cp[0][2][1][2] for material 0 is 0.000000e+00
+in dSmat check: cp[0][2][2][0] for material 0 is 2.350000e+10
+in dSmat check: cp[0][2][2][1] for material 0 is 0.000000e+00
+in dSmat check: cp[0][2][2][2] for material 0 is 0.000000e+00
+in dSmat check: cp[1][0][0][0] for material 0 is 0.000000e+00
+in dSmat check: cp[1][0][0][1] for material 0 is 2.350000e+10
+in dSmat check: cp[1][0][0][2] for material 0 is 0.000000e+00
+in dSmat check: cp[1][0][1][0] for material 0 is 2.350000e+10
+in dSmat check: cp[1][0][1][1] for material 0 is 0.000000e+00
+in dSmat check: cp[1][0][1][2] for material 0 is 0.000000e+00
+in dSmat check: cp[1][0][2][0] for material 0 is 0.000000e+00
+in dSmat check: cp[1][0][2][1] for material 0 is 0.000000e+00
+in dSmat check: cp[1][0][2][2] for material 0 is 0.000000e+00
+in dSmat check: cp[1][1][0][0] for material 0 is 1.214000e+11
+in dSmat check: cp[1][1][0][1] for material 0 is 0.000000e+00
+in dSmat check: cp[1][1][0][2] for material 0 is 0.000000e+00
+in dSmat check: cp[1][1][1][0] for material 0 is 0.000000e+00
+in dSmat check: cp[1][1][1][1] for material 0 is 1.684000e+11
+in dSmat check: cp[1][1][1][2] for material 0 is 0.000000e+00
+in dSmat check: cp[1][1][2][0] for material 0 is 0.000000e+00
+in dSmat check: cp[1][1][2][1] for material 0 is 0.000000e+00
+in dSmat check: cp[1][1][2][2] for material 0 is 1.214000e+11
+in dSmat check: cp[1][2][0][0] for material 0 is 0.000000e+00
+in dSmat check: cp[1][2][0][1] for material 0 is 0.000000e+00
+in dSmat check: cp[1][2][0][2] for material 0 is 0.000000e+00
+in dSmat check: cp[1][2][1][0] for material 0 is 0.000000e+00
+in dSmat check: cp[1][2][1][1] for material 0 is 0.000000e+00
+in dSmat check: cp[1][2][1][2] for material 0 is 2.350000e+10
+in dSmat check: cp[1][2][2][0] for material 0 is 0.000000e+00
+in dSmat check: cp[1][2][2][1] for material 0 is 2.350000e+10
+in dSmat check: cp[1][2][2][2] for material 0 is 0.000000e+00
+in dSmat check: cp[2][0][0][0] for material 0 is 0.000000e+00
+in dSmat check: cp[2][0][0][1] for material 0 is 0.000000e+00
+in dSmat check: cp[2][0][0][2] for material 0 is 2.350000e+10
+in dSmat check: cp[2][0][1][0] for material 0 is 0.000000e+00
+in dSmat check: cp[2][0][1][1] for material 0 is 0.000000e+00
+in dSmat check: cp[2][0][1][2] for material 0 is 0.000000e+00
+in dSmat check: cp[2][0][2][0] for material 0 is 2.350000e+10
+in dSmat check: cp[2][0][2][1] for material 0 is 0.000000e+00
+in dSmat check: cp[2][0][2][2] for material 0 is 0.000000e+00
+in dSmat check: cp[2][1][0][0] for material 0 is 0.000000e+00
+in dSmat check: cp[2][1][0][1] for material 0 is 0.000000e+00
+in dSmat check: cp[2][1][0][2] for material 0 is 0.000000e+00
+in dSmat check: cp[2][1][1][0] for material 0 is 0.000000e+00
+in dSmat check: cp[2][1][1][1] for material 0 is 0.000000e+00
+in dSmat check: cp[2][1][1][2] for material 0 is 2.350000e+10
+in dSmat check: cp[2][1][2][0] for material 0 is 0.000000e+00
+in dSmat check: cp[2][1][2][1] for material 0 is 2.350000e+10
+in dSmat check: cp[2][1][2][2] for material 0 is 0.000000e+00
+in dSmat check: cp[2][2][0][0] for material 0 is 1.214000e+11
+in dSmat check: cp[2][2][0][1] for material 0 is 0.000000e+00
+in dSmat check: cp[2][2][0][2] for material 0 is 0.000000e+00
+in dSmat check: cp[2][2][1][0] for material 0 is 0.000000e+00
+in dSmat check: cp[2][2][1][1] for material 0 is 1.214000e+11
+in dSmat check: cp[2][2][1][2] for material 0 is 0.000000e+00
+in dSmat check: cp[2][2][2][0] for material 0 is 0.000000e+00
+in dSmat check: cp[2][2][2][1] for material 0 is 0.000000e+00
+in dSmat check: cp[2][2][2][2] for material 0 is 1.684000e+11
+Material 0 has dCij
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
+mup is 0.000000e+00
+Amatrix for material 1
+1.000000 0.000000 0.000000 
+0.000000 1.000000 0.000000 
+0.000000 0.000000 1.000000 
+in dSmat check: cp[0][0][0][0] for material 1 is 2.465000e+11
+in dSmat check: cp[0][0][0][1] for material 1 is 0.000000e+00
+in dSmat check: cp[0][0][0][2] for material 1 is 0.000000e+00
+in dSmat check: cp[0][0][1][0] for material 1 is 0.000000e+00
+in dSmat check: cp[0][0][1][1] for material 1 is 1.473000e+11
+in dSmat check: cp[0][0][1][2] for material 1 is 0.000000e+00
+in dSmat check: cp[0][0][2][0] for material 1 is 0.000000e+00
+in dSmat check: cp[0][0][2][1] for material 1 is 0.000000e+00
+in dSmat check: cp[0][0][2][2] for material 1 is 1.473000e+11
+in dSmat check: cp[0][1][0][0] for material 1 is 0.000000e+00
+in dSmat check: cp[0][1][0][1] for material 1 is 4.960000e+10
+in dSmat check: cp[0][1][0][2] for material 1 is 0.000000e+00
+in dSmat check: cp[0][1][1][0] for material 1 is 4.960000e+10
+in dSmat check: cp[0][1][1][1] for material 1 is 0.000000e+00
+in dSmat check: cp[0][1][1][2] for material 1 is 0.000000e+00
+in dSmat check: cp[0][1][2][0] for material 1 is 0.000000e+00
+in dSmat check: cp[0][1][2][1] for material 1 is 0.000000e+00
+in dSmat check: cp[0][1][2][2] for material 1 is 0.000000e+00
+in dSmat check: cp[0][2][0][0] for material 1 is 0.000000e+00
+in dSmat check: cp[0][2][0][1] for material 1 is 0.000000e+00
+in dSmat check: cp[0][2][0][2] for material 1 is 4.960000e+10
+in dSmat check: cp[0][2][1][0] for material 1 is 0.000000e+00
+in dSmat check: cp[0][2][1][1] for material 1 is 0.000000e+00
+in dSmat check: cp[0][2][1][2] for material 1 is 0.000000e+00
+in dSmat check: cp[0][2][2][0] for material 1 is 4.960000e+10
+in dSmat check: cp[0][2][2][1] for material 1 is 0.000000e+00
+in dSmat check: cp[0][2][2][2] for material 1 is 0.000000e+00
+in dSmat check: cp[1][0][0][0] for material 1 is 0.000000e+00
+in dSmat check: cp[1][0][0][1] for material 1 is 4.960000e+10
+in dSmat check: cp[1][0][0][2] for material 1 is 0.000000e+00
+in dSmat check: cp[1][0][1][0] for material 1 is 4.960000e+10
+in dSmat check: cp[1][0][1][1] for material 1 is 0.000000e+00
+in dSmat check: cp[1][0][1][2] for material 1 is 0.000000e+00
+in dSmat check: cp[1][0][2][0] for material 1 is 0.000000e+00
+in dSmat check: cp[1][0][2][1] for material 1 is 0.000000e+00
+in dSmat check: cp[1][0][2][2] for material 1 is 0.000000e+00
+in dSmat check: cp[1][1][0][0] for material 1 is 1.473000e+11
+in dSmat check: cp[1][1][0][1] for material 1 is 0.000000e+00
+in dSmat check: cp[1][1][0][2] for material 1 is 0.000000e+00
+in dSmat check: cp[1][1][1][0] for material 1 is 0.000000e+00
+in dSmat check: cp[1][1][1][1] for material 1 is 2.465000e+11
+in dSmat check: cp[1][1][1][2] for material 1 is 0.000000e+00
+in dSmat check: cp[1][1][2][0] for material 1 is 0.000000e+00
+in dSmat check: cp[1][1][2][1] for material 1 is 0.000000e+00
+in dSmat check: cp[1][1][2][2] for material 1 is 1.473000e+11
+in dSmat check: cp[1][2][0][0] for material 1 is 0.000000e+00
+in dSmat check: cp[1][2][0][1] for material 1 is 0.000000e+00
+in dSmat check: cp[1][2][0][2] for material 1 is 0.000000e+00
+in dSmat check: cp[1][2][1][0] for material 1 is 0.000000e+00
+in dSmat check: cp[1][2][1][1] for material 1 is 0.000000e+00
+in dSmat check: cp[1][2][1][2] for material 1 is 4.960000e+10
+in dSmat check: cp[1][2][2][0] for material 1 is 0.000000e+00
+in dSmat check: cp[1][2][2][1] for material 1 is 4.960000e+10
+in dSmat check: cp[1][2][2][2] for material 1 is 0.000000e+00
+in dSmat check: cp[2][0][0][0] for material 1 is 0.000000e+00
+in dSmat check: cp[2][0][0][1] for material 1 is 0.000000e+00
+in dSmat check: cp[2][0][0][2] for material 1 is 4.960000e+10
+in dSmat check: cp[2][0][1][0] for material 1 is 0.000000e+00
+in dSmat check: cp[2][0][1][1] for material 1 is 0.000000e+00
+in dSmat check: cp[2][0][1][2] for material 1 is 0.000000e+00
+in dSmat check: cp[2][0][2][0] for material 1 is 4.960000e+10
+in dSmat check: cp[2][0][2][1] for material 1 is 0.000000e+00
+in dSmat check: cp[2][0][2][2] for material 1 is 0.000000e+00
+in dSmat check: cp[2][1][0][0] for material 1 is 0.000000e+00
+in dSmat check: cp[2][1][0][1] for material 1 is 0.000000e+00
+in dSmat check: cp[2][1][0][2] for material 1 is 0.000000e+00
+in dSmat check: cp[2][1][1][0] for material 1 is 0.000000e+00
+in dSmat check: cp[2][1][1][1] for material 1 is 0.000000e+00
+in dSmat check: cp[2][1][1][2] for material 1 is 4.960000e+10
+in dSmat check: cp[2][1][2][0] for material 1 is 0.000000e+00
+in dSmat check: cp[2][1][2][1] for material 1 is 4.960000e+10
+in dSmat check: cp[2][1][2][2] for material 1 is 0.000000e+00
+in dSmat check: cp[2][2][0][0] for material 1 is 1.473000e+11
+in dSmat check: cp[2][2][0][1] for material 1 is 0.000000e+00
+in dSmat check: cp[2][2][0][2] for material 1 is 0.000000e+00
+in dSmat check: cp[2][2][1][0] for material 1 is 0.000000e+00
+in dSmat check: cp[2][2][1][1] for material 1 is 1.473000e+11
+in dSmat check: cp[2][2][1][2] for material 1 is 0.000000e+00
+in dSmat check: cp[2][2][2][0] for material 1 is 0.000000e+00
+in dSmat check: cp[2][2][2][1] for material 1 is 0.000000e+00
+in dSmat check: cp[2][2][2][2] for material 1 is 2.465000e+11
+Material 1 has dCij
+7.810000e+10 2.590000e+10 2.590000e+10 0.000000e+00 0.000000e+00 0.000000e+00 
+2.590000e+10 7.810000e+10 2.590000e+10 0.000000e+00 0.000000e+00 0.000000e+00 
+2.590000e+10 2.590000e+10 7.810000e+10 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 2.610000e+10 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 2.610000e+10 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 2.610000e+10 
+base[0]=3.316261e-01
+j1 is 1
+base[1]=3.015444e+00
+j1 is 2
+base[2]=1.000000e+00
+j1 is 3
+base[1]=3015444 ,base[0] = 331626, 0
+base[2]=1000000 ,base[1] = 3015444, 0
+j2 is 3
+base[0]=3.316261e-01
+j1 is 1
+base[1]=1.000000e+00
+j1 is 2
+base[2]=3.015444e+00
+j1 is 3
+base[1]=1000000 ,base[0] = 331626, 0
+base[2]=3015444 ,base[1] = 1000000, 0
+j2 is 3
+base[0]=1.000000e+00
+j1 is 1
+base[1]=3.316261e-01
+j1 is 2
+base[2]=3.015444e+00
+j1 is 3
+base[1]=331626 ,base[0] = 1000000, 0
+base[2]=3015444 ,base[1] = 331626, 0
+j2 is 3
+Rank of dC is 6
+dCR is 
+7.810000e+10 2.590000e+10 2.590000e+10 0.000000e+00 0.000000e+00 0.000000e+00 
+2.590000e+10 7.810000e+10 2.590000e+10 0.000000e+00 0.000000e+00 0.000000e+00 
+2.590000e+10 2.590000e+10 7.810000e+10 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 2.610000e+10 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 2.610000e+10 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 2.610000e+10 
+CR is 1
+1.684000e+11 1.214000e+11 1.214000e+11 0.000000e+00 0.000000e+00 0.000000e+00 
+1.214000e+11 1.684000e+11 1.214000e+11 0.000000e+00 0.000000e+00 0.000000e+00 
+1.214000e+11 1.214000e+11 1.684000e+11 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 2.350000e+10 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 2.350000e+10 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 2.350000e+10 
+dSR for material 1
+1.533747e-11 -3.819620e-12 -3.819620e-12 -0.000000e+00 0.000000e+00 -0.000000e+00 
+-3.819620e-12 1.533747e-11 -3.819620e-12 0.000000e+00 -0.000000e+00 0.000000e+00 
+-3.819620e-12 -3.819620e-12 1.533747e-11 -0.000000e+00 0.000000e+00 -0.000000e+00 
+-0.000000e+00 0.000000e+00 -0.000000e+00 3.831418e-11 -0.000000e+00 0.000000e+00 
+0.000000e+00 -0.000000e+00 0.000000e+00 -0.000000e+00 3.831418e-11 -0.000000e+00 
+-0.000000e+00 0.000000e+00 -0.000000e+00 0.000000e+00 -0.000000e+00 3.831418e-11 
+
+
+
+
+
+
+KK first term
+-4.620982e+11 -4.197802e+11 -4.197802e+11 0.000000e+00 0.000000e+00 0.000000e+00 
+-4.197802e+11 -4.620982e+11 -4.197802e+11 0.000000e+00 0.000000e+00 0.000000e+00 
+-4.197802e+11 -4.197802e+11 -4.620982e+11 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 -2.115900e+10 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 -2.115900e+10 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 -2.115900e+10 
+dS for material 1
+1.533747e-11 -3.819620e-12 -3.819620e-12 -0.000000e+00 0.000000e+00 -0.000000e+00 
+-3.819620e-12 1.533747e-11 -3.819620e-12 0.000000e+00 -0.000000e+00 0.000000e+00 
+-3.819620e-12 -3.819620e-12 1.533747e-11 -0.000000e+00 0.000000e+00 -0.000000e+00 
+-0.000000e+00 0.000000e+00 -0.000000e+00 3.831418e-11 -0.000000e+00 0.000000e+00 
+0.000000e+00 -0.000000e+00 0.000000e+00 -0.000000e+00 3.831418e-11 -0.000000e+00 
+-0.000000e+00 0.000000e+00 -0.000000e+00 0.000000e+00 -0.000000e+00 3.831418e-11 
+KK for material 1
+-6.304982e+11 -5.411802e+11 -5.411802e+11 0.000000e+00 0.000000e+00 0.000000e+00 
+-5.411802e+11 -6.304982e+11 -5.411802e+11 0.000000e+00 0.000000e+00 0.000000e+00 
+-5.411802e+11 -5.411802e+11 -6.304982e+11 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 -4.465900e+10 0.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 -4.465900e+10 0.000000e+00 
+0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 -4.465900e+10 
+Burgers vector b1 = (-0.707107 , 0.707107 , 0.000000 )
+Burgers vector b2 = (-0.707107 , 0.707107 , 0.000000 )
+Slip plane     n  = [0.577350,  0.577350 , 0.577350 ]
+strainsys (0) 
+1.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 
+strainsys (1) 
+0.000000 1.000000 0.000000 
+0.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 
+strainsys (2) 
+0.000000 0.000000 1.000000 
+0.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 
+strainsys (3) 
+0.000000 0.000000 0.000000 
+1.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 
+strainsys (4) 
+0.000000 0.000000 0.000000 
+0.000000 1.000000 0.000000 
+0.000000 0.000000 0.000000 
+strainsys (5) 
+0.000000 0.000000 0.000000 
+0.000000 0.000000 1.000000 
+0.000000 0.000000 0.000000 
+strainsys (6) 
+0.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 
+1.000000 0.000000 0.000000 
+strainsys (7) 
+0.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 
+0.000000 1.000000 0.000000 
+strainsys (8) 
+0.000000 0.000000 0.000000 
+0.000000 0.000000 0.000000 
+0.000000 0.000000 1.000000 
+Eps0 for slip system 0 
+0.000000 0.000000 0.000000 
+1.000000 0.000000 0.000000 
+-0.000000 0.000000 0.000000 
+Eps0 for slip system 1 
+0.000000 0.000000 0.000000 
+1.000000 0.000000 0.000000 
+-0.000000 0.000000 0.000000 
+Eps0 for slip system 2 
+0.000000 0.000000 0.000000 
+1.000000 0.000000 0.000000 
+-0.000000 0.000000 0.000000 
+Eps0 for slip system 3 
+0.000000 0.000000 0.000000 
+1.000000 0.000000 0.000000 
+-0.000000 0.000000 0.000000 
+in calculateD4int check:  in material 0 coordinates:
+b0[0] = 0.000000, b1[0] = 0.000000, interface_n_rotate[0] = 0.577350
+in calculateD4int check:  in material 0 coordinates:
+b0[1] = 1.000000, b1[1] = 1.000000, interface_n_rotate[1] = 0.000000
+in calculateD4int check:  in material 0 coordinates:
+b0[2] = 0.000000, b1[2] = 0.000000, interface_n_rotate[2] = 0.816497
+check D coefficients: D10 = 1.033780e+01, D01 = 4.775841e+00, D00 = 4.897951e+00, D11 = 1.008007e+01
+check lambda1 and lambda2 and stressthreshold: lam1 = 1.025568e+00, lam2 = 4.737903e-01 all xi0/xi1 and stressthreshold = xi_0* 0.064757
+energy barrier = 0.767242   delta = 30.935416
+D00 = 4.897951e+00, D11 = 1.008007e+01, D10 = 1.033780e+01, D01 = 4.775841e+00
+Frequencies
+Set interaction matrix
+set B matrix 
+set F matrix 
+ Generating initial data
+0start time step 
+E[0]=66688750862.663910,miu[0]=0.418910, C_effective[0] = 114764845605.700714
+E[1]=136305535804.977142,miu[1]=0.374048, C_effective[1] = 217757079107.505066
+max misfit stress is -1889945247.843862
+max resolved shear stress is 0.890929Resolved shear stresses
+time step, 0 0 0
+xi = 0.000000e+00
+en 0
+vflag 0, time 0 
+time step, 1 0 0
+xi = 0.000000e+00
+Calculated from resolved process penetrationstress = 0.378756 and penetrationstress2 = 0.718103 at x = 16, y = 0, z = 24
+check neighbor: ppointz+2 = 0.370595 and ppoint+3 = 0.437864 and ppoint-1 = 0.460805
+Calculated from resolved process penetrationstress = 0.378756 and penetrationstress2 = 0.718103 at x = 16, y = 1, z = 24
+check neighbor: ppointz+2 = 0.370595 and ppoint+3 = 0.437864 and ppoint-1 = 0.460805
+en 7.77188e-08
+vflag 0, time 1 
+here plastic!
+evolve plastic then evolve interface
+in evolve plastic:    0    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    1    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    2    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    3    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    4    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    5    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    6    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    7    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    8    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    9    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    10    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    11    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    12    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    13    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    14    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    15    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    16    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    17    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    18    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    19    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    20    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    21    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    22    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    23    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    24    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    25    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    26    1
+in interfacevolv: not pass :( at y = 0
+in interfacevolv: not pass :( at y = 1
+en 3.10595e-07
+in evolve plastic:    27    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    28    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    29    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    30    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    31    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    32    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    33    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    34    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    35    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    36    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    37    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    38    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    39    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    40    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    41    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    42    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    43    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    44    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    45    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    46    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    47    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    48    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    49    1
+in interfacevolv: pass at y = 0!
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass at y = 1!
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    50    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    51    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    52    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    53    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    54    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    55    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    56    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    57    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    58    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    59    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    60    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    61    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    62    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    63    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    64    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    65    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    66    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    67    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    68    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    69    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    70    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    71    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    72    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    73    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    74    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    75    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    76    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    77    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    78    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    79    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    80    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    81    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    82    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    83    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    84    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    85    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    86    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    87    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    88    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    89    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    90    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    91    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    92    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    93    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    94    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    95    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    96    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    97    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    98    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    99    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    100    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    101    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    102    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    103    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    104    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    105    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    106    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    107    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    108    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    109    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    110    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    111    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    112    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    113    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    114    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    115    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    116    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    117    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    118    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    119    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    120    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    121    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    122    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    123    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    124    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    125    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    126    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    127    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    128    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    129    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    130    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    131    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    132    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    133    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    134    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    135    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    136    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    137    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    138    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    139    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    140    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    141    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    142    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    143    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    144    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    145    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    146    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    147    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    148    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    149    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    150    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    151    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    152    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    153    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    154    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    155    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    156    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    157    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    158    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    159    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    160    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    161    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    162    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    163    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    164    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    165    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    166    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    167    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    168    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    169    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    170    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    171    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    172    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    173    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    174    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    175    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    176    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    177    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    178    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    179    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    180    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    181    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    182    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    183    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    184    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    185    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    186    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    187    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    188    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    189    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    190    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    191    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    192    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    193    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    194    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    195    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    196    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    197    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    198    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    199    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    200    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    201    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    202    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    203    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    204    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    205    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    206    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    207    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    208    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    209    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    210    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    211    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    212    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    213    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    214    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    215    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    216    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    217    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    218    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    219    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    220    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    221    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    222    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    223    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    224    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    225    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    226    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    227    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    228    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    229    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    230    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    231    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    232    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    233    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    234    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    235    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    236    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    237    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    238    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    239    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    240    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    241    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    242    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    243    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    244    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    245    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    246    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    247    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    248    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    249    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    250    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    251    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    252    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    253    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    254    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    255    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    256    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    257    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    258    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    259    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    260    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    261    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    262    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    263    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    264    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    265    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    266    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    267    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    268    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    269    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    270    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    271    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    272    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    273    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    274    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    275    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    276    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    277    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    278    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    279    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    280    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    281    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    282    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    283    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    284    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    285    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    286    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    287    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    288    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    289    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    290    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    291    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    292    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    293    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    294    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    295    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    296    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    297    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    298    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    299    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    300    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    301    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    302    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    303    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    304    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    305    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    306    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    307    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    308    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    309    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    310    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    311    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    312    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    313    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    314    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    315    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    316    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    317    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    318    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    319    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    320    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    321    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    322    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    323    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    324    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    325    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    326    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    327    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    328    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    329    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    330    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    331    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    332    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    333    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    334    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    335    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    336    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    337    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    338    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    339    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    340    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    341    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    342    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    343    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    344    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    345    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    346    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    347    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    348    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    349    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    350    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    351    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    352    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    353    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    354    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    355    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    356    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    357    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    358    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    359    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    360    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    361    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    362    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    363    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    364    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    365    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    366    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    367    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    368    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    369    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    370    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    371    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    372    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    373    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    374    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    375    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    376    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    377    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    378    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    379    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    380    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    381    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    382    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    383    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    384    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    385    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    386    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    387    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    388    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    389    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    390    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    391    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    392    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    393    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    394    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    395    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    396    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    397    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    398    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    399    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    400    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    401    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    402    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    403    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    404    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    405    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    406    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    407    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    408    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    409    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    410    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    411    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    412    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    413    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    414    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    415    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    416    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    417    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    418    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    419    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    420    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    421    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    422    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    423    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    424    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    425    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    426    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    427    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    428    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    429    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    430    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    431    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    432    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    433    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    434    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    435    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    436    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    437    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    438    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    439    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    440    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    441    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    442    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    443    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    444    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    445    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    446    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    447    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    448    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    449    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    450    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    451    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    452    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    453    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    454    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    455    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    456    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    457    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    458    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    459    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    460    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    461    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    462    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    463    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    464    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    465    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    466    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    467    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    468    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    469    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    470    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    471    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    472    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    473    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    474    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    475    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    476    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    477    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    478    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    479    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    480    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    481    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    482    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    483    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    484    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    485    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    486    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    487    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    488    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    489    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    490    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    491    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    492    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    493    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    494    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    495    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    496    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    497    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    498    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    499    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    500    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    501    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    502    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    503    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    504    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    505    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    506    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    507    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    508    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    509    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    510    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    511    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    512    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    513    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    514    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    515    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    516    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    517    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    518    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    519    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    520    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    521    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    522    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    523    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    524    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    525    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    526    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    527    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    528    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    529    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    530    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    531    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    532    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    533    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    534    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    535    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    536    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    537    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    538    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    539    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    540    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    541    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    542    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    543    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    544    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    545    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    546    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    547    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    548    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    549    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    550    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    551    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    552    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    553    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    554    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    555    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    556    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    557    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    558    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    559    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    560    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    561    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    562    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    563    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    564    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    565    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    566    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    567    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    568    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    569    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    570    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    571    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    572    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    573    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    574    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    575    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    576    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    577    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    578    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    579    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    580    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    581    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    582    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    583    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    584    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    585    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    586    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    587    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    588    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    589    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    590    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    591    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    592    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    593    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    594    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    595    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    596    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    597    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    598    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    599    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    600    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    601    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    602    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    603    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    604    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    605    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    606    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    607    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    608    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    609    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    610    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    611    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    612    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    613    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    614    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    615    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    616    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    617    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    618    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    619    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    620    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    621    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    622    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    623    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    624    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    625    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    626    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    627    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    628    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    629    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    630    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    631    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    632    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    633    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    634    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    635    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    636    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    637    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    638    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    639    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    640    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    641    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    642    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    643    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    644    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    645    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    646    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    647    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    648    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    649    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    650    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    651    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    652    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    653    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    654    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    655    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    656    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    657    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    658    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    659    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    660    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    661    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    662    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    663    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    664    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    665    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    666    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    667    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    668    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    669    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    670    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    671    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    672    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    673    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    674    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    675    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    676    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+in evolve plastic:    677    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 9.849371e-09     0
+in evolve plastic:    678    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 9.811076e-09     0
+in evolve plastic:    679    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 9.578522e-09     0
+in evolve plastic:    680    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 9.290624e-09     0
+in evolve plastic:    681    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 9.037556e-09     0
+in evolve plastic:    682    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 8.928053e-09     0
+in evolve plastic:    683    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 8.587492e-09     0
+in evolve plastic:    684    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 8.578059e-09     0
+in evolve plastic:    685    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 8.756663e-09     0
+in evolve plastic:    686    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 8.355085e-09     0
+in evolve plastic:    687    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 8.169968e-09     0
+in evolve plastic:    688    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 8.057374e-09     0
+in evolve plastic:    689    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 7.703338e-09     0
+in evolve plastic:    690    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 7.769507e-09     0
+in evolve plastic:    691    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 7.487393e-09     0
+in evolve plastic:    692    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 7.420526e-09     0
+in evolve plastic:    693    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 7.389718e-09     0
+in evolve plastic:    694    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 7.244674e-09     0
+in evolve plastic:    695    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 6.742062e-09     0
+in evolve plastic:    696    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 6.835093e-09     0
+in evolve plastic:    697    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 6.674809e-09     0
+in evolve plastic:    698    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 6.558586e-09     0
+in evolve plastic:    699    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 6.326551e-09     0
+in evolve plastic:    700    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 6.455950e-09     0
+in evolve plastic:    701    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 6.092600e-09     0
+in evolve plastic:    702    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 6.169006e-09     0
+in evolve plastic:    703    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 5.668105e-09     0
+in evolve plastic:    704    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 5.618398e-09     0
+in evolve plastic:    705    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 5.509859e-09     0
+in evolve plastic:    706    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 5.438157e-09     1
+in evolve plastic:    707    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 5.174735e-09     2
+in evolve plastic:    708    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 5.258624e-09     3
+in evolve plastic:    709    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 5.188135e-09     4
+in evolve plastic:    710    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 3.10595e-07
+(gamma-gammalast)/gamma = 5.019926e-09     5
+in evolve plastic:    711    0
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+time step, 2 0 0
+xi = 0.000000e+00
+Calculated from resolved process penetrationstress = 0.378751 and penetrationstress2 = 0.718180 at x = 16, y = 0, z = 24
+check neighbor: ppointz+2 = 0.370625 and ppoint+3 = 0.437900 and ppoint-1 = 0.460799
+Calculated from resolved process penetrationstress = 0.378751 and penetrationstress2 = 0.718180 at x = 16, y = 1, z = 24
+check neighbor: ppointz+2 = 0.370625 and ppoint+3 = 0.437900 and ppoint-1 = 0.460799
+en 3.10595e-07
+vflag 0, time 2 
+here plastic!
+evolve plastic then evolve interface
+(gamma-gammalast)/gamma = 4.967289e-09     0
+in evolve plastic:    0    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    1    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    2    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    3    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    4    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    5    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    6    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    7    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    8    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    9    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    10    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    11    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    12    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    13    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    14    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    15    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    16    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    17    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    18    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    19    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    20    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    21    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    22    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    23    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    24    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    25    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    26    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    27    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    28    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    29    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    30    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    31    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    32    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    33    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    34    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    35    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    36    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    37    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    38    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    39    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    40    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    41    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    42    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    43    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    44    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    45    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    46    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    47    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    48    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    49    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    50    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    51    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    52    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    53    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    54    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    55    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    56    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    57    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    58    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    59    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    60    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    61    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    62    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    63    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    64    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    65    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    66    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    67    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    68    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    69    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    70    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    71    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    72    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    73    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    74    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    75    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    76    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    77    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    78    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    79    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    80    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    81    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    82    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    83    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    84    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    85    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    86    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    87    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    88    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    89    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    90    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    91    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    92    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    93    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    94    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    95    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    96    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    97    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    98    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    99    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    100    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    101    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    102    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    103    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    104    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    105    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    106    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    107    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    108    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    109    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    110    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    111    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    112    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    113    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    114    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    115    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    116    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    117    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    118    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    119    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    120    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    121    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+in evolve plastic:    122    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -9.961433e-09     0
+in evolve plastic:    123    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -9.743786e-09     0
+in evolve plastic:    124    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -9.448050e-09     0
+in evolve plastic:    125    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -9.532343e-09     0
+in evolve plastic:    126    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -9.101262e-09     0
+in evolve plastic:    127    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -8.979198e-09     0
+in evolve plastic:    128    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -8.800949e-09     0
+in evolve plastic:    129    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -8.566545e-09     0
+in evolve plastic:    130    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -8.393925e-09     0
+in evolve plastic:    131    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -8.162843e-09     0
+in evolve plastic:    132    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -8.069632e-09     0
+in evolve plastic:    133    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -7.937189e-09     0
+in evolve plastic:    134    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -7.692167e-09     0
+in evolve plastic:    135    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -7.734004e-09     0
+in evolve plastic:    136    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -7.322401e-09     0
+in evolve plastic:    137    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -7.351644e-09     0
+in evolve plastic:    138    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -7.126973e-09     0
+in evolve plastic:    139    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -6.831227e-09     0
+in evolve plastic:    140    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -6.802696e-09     0
+in evolve plastic:    141    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -6.737737e-09     0
+in evolve plastic:    142    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -6.579714e-09     0
+in evolve plastic:    143    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -6.191239e-09     0
+in evolve plastic:    144    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -6.150653e-09     0
+in evolve plastic:    145    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -6.169275e-09     0
+in evolve plastic:    146    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -5.767023e-09     0
+in evolve plastic:    147    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -5.748325e-09     0
+in evolve plastic:    148    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -5.844411e-09     0
+in evolve plastic:    149    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -5.580815e-09     0
+in evolve plastic:    150    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -5.525567e-09     0
+in evolve plastic:    151    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -5.298419e-09     1
+in evolve plastic:    152    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -5.508548e-09     2
+in evolve plastic:    153    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -4.919069e-09     3
+in evolve plastic:    154    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -5.043631e-09     4
+in evolve plastic:    155    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 9.58977e-07
+(gamma-gammalast)/gamma = -4.895588e-09     5
+in evolve plastic:    156    0
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+time step, 3 0 0
+xi = 0.000000e+00
+Calculated from resolved process penetrationstress = -0.005307 and penetrationstress2 = 1.303633 at x = 16, y = 0, z = 24
+check neighbor: ppointz+2 = -0.023522 and ppoint+3 = 0.028483 and ppoint-1 = 0.019145
+Calculated from resolved process penetrationstress = -0.005307 and penetrationstress2 = 1.303633 at x = 16, y = 1, z = 24
+check neighbor: ppointz+2 = -0.023522 and ppoint+3 = 0.028483 and ppoint-1 = 0.019145
+en 9.58977e-07
+vflag 0, time 3 
+here plastic!
+evolve plastic then evolve interface
+(gamma-gammalast)/gamma = -4.746504e-09     0
+in evolve plastic:    0    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    1    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    2    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    3    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    4    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    5    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    6    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    7    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    8    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    9    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    10    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    11    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    12    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    13    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    14    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    15    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    16    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    17    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    18    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    19    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    20    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    21    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    22    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    23    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    24    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    25    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    26    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    27    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    28    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    29    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    30    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    31    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    32    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    33    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    34    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    35    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    36    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    37    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    38    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    39    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    40    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    41    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    42    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    43    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    44    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    45    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    46    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    47    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    48    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    49    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    50    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    51    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    52    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    53    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    54    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    55    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    56    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    57    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    58    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    59    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    60    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    61    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    62    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    63    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    64    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    65    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    66    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    67    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    68    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    69    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    70    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    71    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    72    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    73    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    74    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    75    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    76    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    77    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    78    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    79    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    80    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    81    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    82    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    83    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    84    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    85    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    86    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    87    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    88    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    89    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    90    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    91    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    92    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    93    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    94    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    95    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    96    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    97    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    98    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    99    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    100    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    101    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    102    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    103    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    104    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    105    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    106    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    107    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    108    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    109    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    110    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    111    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    112    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    113    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    114    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    115    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    116    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    117    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    118    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    119    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    120    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    121    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    122    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    123    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    124    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    125    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+in evolve plastic:    126    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -9.924733e-09     0
+in evolve plastic:    127    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -9.742647e-09     0
+in evolve plastic:    128    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -9.442551e-09     0
+in evolve plastic:    129    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -9.374126e-09     0
+in evolve plastic:    130    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -9.233870e-09     0
+in evolve plastic:    131    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -8.895733e-09     0
+in evolve plastic:    132    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -8.718574e-09     0
+in evolve plastic:    133    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -8.694767e-09     0
+in evolve plastic:    134    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -8.216084e-09     0
+in evolve plastic:    135    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -8.236257e-09     0
+in evolve plastic:    136    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -8.065427e-09     0
+in evolve plastic:    137    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -7.856498e-09     0
+in evolve plastic:    138    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -7.650189e-09     0
+in evolve plastic:    139    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -7.526031e-09     0
+in evolve plastic:    140    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -7.322924e-09     0
+in evolve plastic:    141    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -7.237125e-09     0
+in evolve plastic:    142    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -7.041044e-09     0
+in evolve plastic:    143    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -6.784503e-09     0
+in evolve plastic:    144    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -6.871578e-09     0
+in evolve plastic:    145    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -6.367490e-09     0
+in evolve plastic:    146    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -6.345680e-09     0
+in evolve plastic:    147    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -6.265699e-09     0
+in evolve plastic:    148    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -6.257589e-09     0
+in evolve plastic:    149    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -6.196053e-09     0
+in evolve plastic:    150    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -6.094756e-09     0
+in evolve plastic:    151    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -5.899774e-09     0
+in evolve plastic:    152    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -5.745626e-09     0
+in evolve plastic:    153    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -5.383611e-09     0
+in evolve plastic:    154    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -5.666036e-09     0
+in evolve plastic:    155    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -5.430591e-09     1
+in evolve plastic:    156    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -5.359686e-09     2
+in evolve plastic:    157    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -5.169171e-09     3
+in evolve plastic:    158    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -5.132915e-09     4
+in evolve plastic:    159    1
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+en 2.06214e-06
+(gamma-gammalast)/gamma = -5.056629e-09     5
+in evolve plastic:    160    0
+in interfacevolv: pass! And leave a residual! at y = 0
+in interfacevolv: pass! And leave a residual! at y = 1
+time step, 4 0 0
+xi = 0.000000e+00
+printing strains 4 0
+go till here!!!
+printing stress 4 0
+en 2.06214e-06
+vflag 0, time 4 
+wall time 5.793868s

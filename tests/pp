@@ -1,0 +1,48 @@
+diff --git a/tests/SubsequentSlip_Feb_2v19.c b/tests/SubsequentSlip_Feb_2v19.c
+index 6aa0a46..761a944 100755
+--- a/tests/SubsequentSlip_Feb_2v19.c
++++ b/tests/SubsequentSlip_Feb_2v19.c
+@@ -123,6 +123,32 @@ fft_forward_cufft(float *data, int batch)
+   } // #pragma acc data copy(_data[0:stride*batch])
+ }
+ 
++static void
++fft_backward_cufft(float *data, int batch)
++{
++  int stride = 2 * N1 * N2 * N3;
++  int i;
++
++  static cufftHandle planc2c;
++  if (!planc2c) {
++    cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
++  }
++
++  float *_data = data + 1;
++#pragma acc data copy(_data[0:stride*batch])
++  {
++    for (i = 0; i < batch; i++) {
++#pragma acc host_data use_device(_data)
++      {
++	int rc = cufftExecC2C(planc2c, (cufftComplex *)(_data + i * stride),
++			      (cufftComplex *)(_data + i * stride),
++			      CUFFT_BACKWARD);
++	assert(rc == CUFFT_SUCCESS);
++      } //#pragma acc host_data use_device(data)
++    }
++  } // #pragma acc data copy(_data[0:stride*batch])
++}
++
+ // ----------------------------------------------------------------------
+ 
+ static void
+@@ -179,9 +205,7 @@ fft_backward(float *data, int batch)
+     fft_backward_fftw(data + i * stride);
+   }
+ #elif defined(USE_CUFFT)
+-  for (i = 0; i < batch; i++) {
+-    fft_backward_fftw(data + i * stride); // ! FIXME
+-  }
++  fft_backward_cufft(data, batch);
+ #else
+ #error I do not know which FFT to use  
+ #endif

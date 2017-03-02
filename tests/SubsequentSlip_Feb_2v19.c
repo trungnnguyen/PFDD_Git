@@ -108,8 +108,6 @@ fft_forward_cufft(float *data, int batch)
     cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
   }
 
-#pragma acc data copy(data[0:stride*batch])
-#pragma acc host_data use_device(data)
   {
     for (i = 0; i < batch; i++) {
       int rc = cufftExecC2C(planc2c, (cufftComplex *)(data + i * stride),
@@ -754,7 +752,10 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
-
+#ifdef USE_CUFFT
+#pragma acc data copy(_data[0:2*N1*N2*N3*NSV])
+#pragma acc host_data use_device(_data)
+#endif
 	  fft_forward(_data, NSV);
 	    
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
@@ -993,7 +994,11 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
-		fft_forward(_data + 1, NSV);
+#ifdef USE_CUFFT
+#pragma acc data copy(_data[0:2*N1*N2*N3*NSV])
+#pragma acc host_data use_device(_data)
+#endif
+		fft_forward(_data, NSV);
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
