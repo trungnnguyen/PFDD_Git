@@ -15,8 +15,12 @@
 #include<time.h>
 #include <sys/time.h> 
 #include <openacc.h> 
+#ifdef USE_CUFFT
 #include <cufft.h> 
+#endif
+#ifdef USE_FFTW
 #include <fftw3.h>
+#endif
 #include <assert.h> 
 
 
@@ -52,11 +56,13 @@ static void
 fft_backward_fourn(float *data)
 {
   int nf[4] = { 0, N1, N2, N3 };
-  fourn(data, nf, 3, 1);
+  fourn(data - 1, nf, 3, 1);
 }
 
 // ----------------------------------------------------------------------
 // FFTW
+
+#ifdef USE_FFTW
 
 static void
 fft_forward_fftw(float *data)
@@ -84,18 +90,22 @@ fft_backward_fftw(float *data)
     plan = fftwf_plan_dft_3d(N1,
 			     N2,
 			     N3,
-			     (fftwf_complex *) (data + 1),
-			     (fftwf_complex *) (data + 1),
+			     (fftwf_complex *) data,
+			     (fftwf_complex *) data,
 			     FFTW_BACKWARD,
 			     FFTW_ESTIMATE);
   }
 
-  fftwf_execute_dft(plan, (fftwf_complex *) (data + 1),
-		    (fftwf_complex *) (data + 1));
+  fftwf_execute_dft(plan, (fftwf_complex *) data,
+		    (fftwf_complex *) data);
 }
+
+#endif
 
 // ----------------------------------------------------------------------
 // CUFFT
+
+#ifdef USE_CUFFT
 
 static void
 fft_forward_cufft(float *data, int batch)
@@ -129,18 +139,16 @@ fft_backward_cufft(float *data, int batch)
     cufftPlan3d(&planc2c, N1,N2,N3, CUFFT_C2C);
   }
 
-  float *_data = data + 1;
-#pragma acc data copy(_data[0:stride*batch])
-#pragma acc host_data use_device(_data)
   {
     for (i = 0; i < batch; i++) {
-      int rc = cufftExecC2C(planc2c, (cufftComplex *)(_data + i * stride),
-			    (cufftComplex *)(_data + i * stride),
+      int rc = cufftExecC2C(planc2c, (cufftComplex *)(data + i * stride),
+			    (cufftComplex *)(data + i * stride),
 			    CUFFT_INVERSE);
       assert(rc == CUFFT_SUCCESS);
     }
   }
 }
+#endif
 
 // ----------------------------------------------------------------------
 
@@ -235,8 +243,8 @@ int main(void){
     double eps[NS][ND][ND],sigma[N1][N2][N3][ND][ND],epsv[NV][ND][ND],q[N1][N2][N3], avesigma[ND][ND], avepsd[ND][ND], avepst[N1][N2][N3][ND][ND], aveps[ND][ND];
     double xn[NS][ND], xb[NS][ND], tau[N1][N2][N3][NS], rho2[NS],interface_n[ND],slipdirection[ND];
     double *fx, *fy, *fz, *slr, *sli, *xi, *xi_sum, *xi_bc, *sigmal, *penetrationstress,*penetrationstress2;
-    float *_data;
-    float *data, *data2,*datag, *databeta, *dataeps, *dataepsd, *datasigma, *sigmav;
+    float *_data, *_data2, *_datag, *_databeta;
+    float *data, *datag, *databeta, *dataeps, *dataepsd, *datasigma, *sigmav;
     double *f, *r;
     double L, d1, d2, d3, dt, size,size3,ir,beta2;
     double C11, C12, C44, S11, S12, S44, CD2[NS], CDv,Asf2[NS],b2[NS],dslip2[NS], b, dslip, mu, young, nu,ll, mup, gs,gs3,a_f,a_s,d_f,d_s, D00, D11,D10,D01,lam1,lam2,stressthreshold;
@@ -303,7 +311,7 @@ acc_init(acc_device_nvidia);
 acc_device_t device_type = acc_get_device_type();
 if ( acc_device_nvidia == device_type ) {
 int num_devices=acc_get_num_devices(acc_device_nvidia); 
-acc_set_device_num(3,acc_device_nvidia); 
+acc_set_device_num(1,acc_device_nvidia); 
 
 printf("Number Of GPUs %d\n",num_devices);
 
@@ -323,9 +331,11 @@ printf("Number Of GPUs %d\n",num_devices);
 
     _data =  malloc((2*(NSV)*(N1)*(N2)*(N3))*sizeof(float));
     data = _data - 1;
-    data2 =  malloc((2*(NSV)*(N1)*(N2)*(N3)+1)*sizeof(float));
-    datag=malloc((2*(NS*N1*N2*N3)+1)*sizeof(float));
-    databeta = malloc(2*((ND)*(ND)*(N1)*(N2)*(N3)+1)*sizeof(float));
+    _data2 =  malloc((2*(NSV)*(N1)*(N2)*(N3))*sizeof(float));
+    _datag=malloc((2*(NS*N1*N2*N3))*sizeof(float));
+    datag = _datag - 1;
+    _databeta = malloc(2*((ND)*(ND)*(N1)*(N2)*(N3))*sizeof(float));
+    databeta = _databeta - 1;
     dataeps = malloc(2*((ND)*(ND)*(N1)*(N2)*(N3)+1)*sizeof(float));
     dataepsd = malloc(2*((ND)*(ND)*(N1)*(N2)*(N3)+1)*sizeof(float));
     datasigma = malloc(2*((ND)*(ND)*(N1)*(N2)*(N3)+1)*sizeof(float));
@@ -762,8 +772,8 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT		  
   
-	  for (i=0; i<2*N1*N2*N3*NSV+1; i++){
-	    data2[i] = 0;
+	  for (i=1; i<2*N1*N2*N3*NSV+1; i++){
+	    _data2[i-1] = 0;
 	    if(i<2*N1*N2*N3*NS+1) datag[i]=0.0;
 	  }
           
@@ -779,8 +789,8 @@ printf("Number Of GPUs %d\n",num_devices);
 		      nad1 = na0+1;
 		      nad2 = na0+2;
 		      nb = k+(j)*N3+(i)*N2*N3+(isa)*N1*N2*N3+(isb)*N1*N2*N3*NS;
-		      data2[na+1] += data[nad1] * BB[nb];
-		      data2[na+2] += data[nad2] * BB[nb];
+		      _data2[na  ] += data[nad1] * BB[nb];
+		      _data2[na+1] += data[nad2] * BB[nb];
 		      if(isb<NS){
 			datag[na+1] += data[nad1] * GG[nb];
 			datag[na+2] += data[nad2] * GG[nb];
@@ -803,7 +813,11 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
-	  fft_backward(datag, NS);
+#ifdef USE_CUFFT
+#pragma acc data copy(_datag[0:2*N1*N2*N3*NS])
+#pragma acc host_data use_device(_datag)
+#endif
+	  fft_backward(_datag, NS);
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
@@ -922,7 +936,7 @@ printf("Number Of GPUs %d\n",num_devices);
 	  if ((it%1==0)||(it==NT-NTD-1)||(it==NT-NTD)) {
 	    fprintf(ofEnergy,"%d    %lf   %lf   %lf   %lf   %lf   %lf\n",it,energy_in,energy_in2,energy_in3,energy_in4,energy_Residual,energy_intotal);
 	  }
-	  virtualevolv(data, data2, sigmav, DD, xi, xi_bc,  CDv, sigmal, Rv, nf, d1, d2, d3, size3, of7, it, itp, vflag, II, xi_o, ZLdC, prop, dS);			/*evolving the virtual strain*/
+	  virtualevolv(data, _data2, sigmav, DD, xi, xi_bc,  CDv, sigmal, Rv, nf, d1, d2, d3, size3, of7, it, itp, vflag, II, xi_o, ZLdC, prop, dS);			/*evolving the virtual strain*/
           
 	  //mark extract xi in final step
 	  if (it==NT-NTD-1) {
@@ -965,7 +979,7 @@ printf("Number Of GPUs %d\n",num_devices);
 	    printf("evolve plastic then evolve interface\n");
 	    do {
 	      gammalast = gamma;
-	      gamma = plasticevolv(xi_bc,xi,CD2,uq2,data2,Asf2,tau,dslip2,datag,data,gamma1,nsize,a_f,a_s,C44,it_plastic);
+	      gamma = plasticevolv(xi_bc,xi,CD2,uq2,_data2,Asf2,tau,dslip2,datag,data,gamma1,nsize,a_f,a_s,C44,it_plastic);
 	      checkpevolv = plasticconverge(gamma,gammalast,it_plastic,testplastic,pcountgamma);
 	      printf("in evolve plastic:    %d    %d\n",it_plastic, checkpevolv);
 	      it_plastic = it_plastic + 1;
@@ -1012,8 +1026,8 @@ printf("Number Of GPUs %d\n",num_devices);
 		
 		
 		//initialize data2 and datag
-		for (i=0; i<2*N1*N2*N3*NSV+1; i++){
-		  data2[i] = 0;
+		for (i=1; i<2*N1*N2*N3*NSV+1; i++){
+		  _data2[i-1] = 0;
 		  if(i<2*N1*N2*N3*NS+1) datag[i]=0.0;
 		}
 		//calculate data2 and datag
@@ -1029,8 +1043,8 @@ printf("Number Of GPUs %d\n",num_devices);
 			    nad1 = na0+1;
 			    nad2 = na0+2;
 			    nb = k+(j)*N3+(i)*N2*N3+(isa)*N1*N2*N3+(isb)*N1*N2*N3*NS;
-			    data2[na+1] += data[nad1] * BB[nb];
-			    data2[na+2] += data[nad2] * BB[nb];
+			    _data2[na  ] += data[nad1] * BB[nb];
+			    _data2[na+1] += data[nad2] * BB[nb];
 			    if(isb<NS){
 			      datag[na+1] += data[nad1] * GG[nb];
 			      datag[na+2] += data[nad2] * GG[nb];
@@ -1040,8 +1054,8 @@ printf("Number Of GPUs %d\n",num_devices);
 			    nad1 = na0+1;
 			    nad2 = na0+2;
 			    nb = k+(j)*N3+(i)*N2*N3+(isb)*N1*N2*N3+(isa-NS)*N1*N2*N3*NSV;
-			    data2[na+1] += data[nad1] * DD[nb];
-			    data2[na+2] += data[nad2] * DD[nb];
+			    _data2[na  ] += data[nad1] * DD[nb];
+			    _data2[na+1] += data[nad2] * DD[nb];
 			  }
 			}
 		      }
@@ -1063,8 +1077,16 @@ printf("Number Of GPUs %d\n",num_devices);
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-	  fft_backward(data2, NS);	/* inverse FFT*/  
-	  fft_backward(datag, NS);	/* inverse FFT*/  
+#ifdef USE_CUFFT
+#pragma acc data copy(_data2[0:2*N1*N2*N3*NS])
+#pragma acc host_data use_device(_data2)
+#endif
+	  fft_backward(_data2, NS);	/* inverse FFT*/  
+#ifdef USE_CUFFT
+#pragma acc data copy(_datag[0:2*N1*N2*N3*NS])
+#pragma acc host_data use_device(_datag)
+#endif
+	  fft_backward(_datag, NS);	/* inverse FFT*/  
   
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
@@ -1228,9 +1250,9 @@ printf("Number Of GPUs %d\n",num_devices);
     
    
     free(_data);
-    free(data2);
-    free(datag);
-    free(databeta);
+    free(_data2);
+    free(_datag);
+    free(_databeta);
     free(dataeps);
     free(dataepsd);
     free(datasigma);
@@ -1740,7 +1762,7 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
   int i,j,k,l,is,k1,k2,k3,na0,na,nad1,nad2,nad3,nad4,nb,psys;
   int na11, na12,na13,na21, na22, na23, na31, na32, na33;
   
-  for (i=0; i<2*N1*N2*N3*ND*ND+1; i++){
+  for (i=1; i<2*N1*N2*N3*ND*ND+1; i++){
     databeta[i] = 0;
     dataeps[i] = 0;
   }
@@ -1783,7 +1805,12 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
-	  fft_backward(databeta, ND*ND);	/* inverse FFT for strain*/
+    float *_databeta = databeta + 1;
+#ifdef USE_CUFFT
+#pragma acc data copy(_databeta[0:2*N1*N2*N3*ND*ND])
+#pragma acc host_data use_device(_databeta)
+#endif
+	  fft_backward(_databeta, ND*ND);	/* inverse FFT for strain*/
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
@@ -1802,7 +1829,7 @@ void strain(float *databeta, float *dataeps, float *data, double *FF, double *FF
     
     
     
-    for (i=0; i<2*N1*N2*N3*ND*ND+1; i++){
+    for (i=1; i<2*N1*N2*N3*ND*ND+1; i++){
         databeta[i] = databeta[i]/(N1*N2*N3);
 	}
 
@@ -1912,7 +1939,7 @@ void stress (float *dataepsd, float *datasigma, float *dataeps, float * sigmav, 
             }
         }
     }
-    for (i=0; i<2*N1*N2*N3*ND*ND+1; i++){
+    for (i=1; i<2*N1*N2*N3*ND*ND+1; i++){
         datasigma[i] =0;
 	    dataepsd[i]=0;
 	}
@@ -2298,7 +2325,7 @@ void initial(float * data, double * xi, double * xi_bc, double setobs, int * xi_
   int ir, na0, na, na1,nad1,nad2, nao, is, ism, iss, i, j, k,rr;
   double r, rmin1,rmin2, r1, r2,r3, r4, r5, r6,rcylin, t1,yita;
     
-  fftwf_complex *data_CUFFT = malloc( (NSV)*(N1)*(N2)*(N3)*sizeof(fftwf_complex));
+  float *data_CUFFT = malloc( (NSV)*(N1)*(N2)*(N3)*2*sizeof(float));
   
   rmin1 = (double)N1/4.0-3.0;//(double)N1/6.0;
   rmin2 = (double)N1/6.0;
@@ -2437,12 +2464,12 @@ void initial(float * data, double * xi, double * xi_bc, double setobs, int * xi_
 	    
 	    data[nad1] = xi[na0];
 	    data[nad2] = xi[na1];
-	    
+	   #if 0
 	   data_CUFFT[nad1][REAL]= xi[na0];
 	   data_CUFFT[nad1][IMAG]= 0.;
 	   data_CUFFT[nad2][REAL]= xi[na1];
 	   data_CUFFT[nad2][IMAG]= 0.; 
-            
+          #endif  
 	  }
 	  
 	  else{  //is>=NS
@@ -2468,8 +2495,9 @@ void initial(float * data, double * xi, double * xi_bc, double setobs, int * xi_
   return;
 }
 
-void virtualevolv(float * data, float * data2, float * sigmav, double * DD, double * xi, double * xi_bc, double CDv, double * sigmal, int Rv, int nf[4], double d1, double d2, double d3, double size3, FILE * of7, int it, int itp, int vflag, double *II, int *xi_o, int ZLdC[NMAT][6], int prop[NMAT][6], double dS[NMAT][6][6])
+void virtualevolv(float * data, float *_data2, float * sigmav, double * DD, double * xi, double * xi_bc, double CDv, double * sigmal, int Rv, int nf[4], double d1, double d2, double d3, double size3, FILE * of7, int it, int itp, int vflag, double *II, int *xi_o, int ZLdC[NMAT][6], int prop[NMAT][6], double dS[NMAT][6][6])
 {
+  float *xdata2 = _data2 - 1;
     int isa, isb, i, j, k, na0, nas, na,na1, nad1, nad2, nb, u,v, psys, ir, itt,naij, nao, indm[2],m,n;
 	float sigr, sigi,dE,dE_imag,dE_min[9];
     dE=0.0;
@@ -2478,7 +2506,7 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
         dE_min[i]=0.0;
     }
 		 /* 
-		 for (i=0; i<2*N1*N2*N3*NSV+1; i++)
+		 for (i=1; i<2*N1*N2*N3*NSV+1; i++)
 		 {
 		 data2[i] = 0;
 		 } */
@@ -2499,8 +2527,8 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
                              nad1 = na0+1;
                              nad2 = na0+2;
 		                     nb = k+(j)*N3+(i)*N2*N3+(isb)*N1*N2*N3+(isa-NS)*N1*N2*N3*NSV;
-		                     data2[na+1] += data[nad1] * DD[nb];
-		                     data2[na+2] += data[nad2] * DD[nb];
+		                     _data2[na  ] += data[nad1] * DD[nb];
+		                     _data2[na+1] += data[nad2] * DD[nb];
                          }
                      }
          }
@@ -2512,7 +2540,11 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
 
 
-	  fft_backward(data2, NSV);	/* inverse FFT*/
+#ifdef USE_CUFFT
+#pragma acc data copy(_data2[0:2*N1*N2*N3*NSV])
+#pragma acc host_data use_device(_data2)
+#endif
+	  fft_backward(_data2, NSV);	/* inverse FFT*/
 	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	  
 //**************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT*************This Part exchanges the FFT routines : FOURN,FFTW,CCUFFT	 
@@ -2541,15 +2573,15 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
                         na0 = 2*(k+(j)*N3+(i)*N3*N2+(isa)*N1*N2*N3);
                         nas = 2*(k+(j)*N3+(i)*N3*N2+(isa-NS)*N1*N2*N3);
                         na = 2*(k+(j)*N3+(i)*N3*N2);
-			            nao = (k+(j)*N3+(i)*N3*N2);
-		                na1 = na0+1;
-		                nad1 = na0+1;
-		                nad2 = na0+2;
+			nao = (k+(j)*N3+(i)*N3*N2);
+			na1 = na0+1;
+			nad1 = na0+1;
+			nad2 = na0+2;
                         naij = k+(j)*N3+(i)*N3*N2+(u)*N1*N2*N3 + (v)*N1*N2*N3*ND;
-		                sigr = -(data2[nad1]/(N1*N2*N3)-sigmal[naij]);
-		                sigi = -(data2[nad2]/(N1*N2*N3));
-		                sigmav[nas] = sigr;
-		                sigmav[nas+1] = sigi;
+			sigr = -(_data2[na0  ]/(N1*N2*N3)-sigmal[naij]);
+			sigi = -(_data2[na0+1]/(N1*N2*N3));
+			sigmav[nas] = sigr;
+			sigmav[nas+1] = sigi;
                         if(it < NT-NTD)
                         {
                             if(xi_bc[na0]==0.0)
@@ -2558,9 +2590,9 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
 				//	printf("nam= %d, u=%d, v=%d, dE1=%e, dE2=%e, dE3=%e\n",xi_o[nao],u,v,data2[nad1]/(N1*N2*N3),II[naij],-sigmal[naij]);
                                 if(xi_o[nao] == -1)
                                 {
-                                    if(it==NT-NTD-1 && i==0 && j==0 && k>N3/2) printf("%d (%d,%d,%d) %e %e %e \n",isa,i,j,k,data2[nad1]/(N1*N2*N3), -sigmal[naij],-CDv*(data2[nad1]/(N1*N2*N3)-sigmal[naij]));
-						            xi[na0] = xi[na0]-CDv*(data2[nad1]/(N1*N2*N3)-sigmal[naij]);///(ceil((it)/100)+1);
-                                    xi[na1] = xi[na1]-CDv*(data2[nad2])/(N1*N2*N3);///(ceil((it)/100)+1);
+                                    if(it==NT-NTD-1 && i==0 && j==0 && k>N3/2) printf("%d (%d,%d,%d) %e %e %e \n",isa,i,j,k,_data2[na0]/(N1*N2*N3), -sigmal[naij],-CDv*(_data2[na0]/(N1*N2*N3)-sigmal[naij]));
+						            xi[na0] = xi[na0]-CDv*(_data2[na0]/(N1*N2*N3)-sigmal[naij]);///(ceil((it)/100)+1);
+                                    xi[na1] = xi[na1]-CDv*(_data2[na0])/(N1*N2*N3);///(ceil((it)/100)+1);
 						//	  printf("%d %lf %lf\n",ceil((itt+1)/10),CDv/ceil((itt+1)/10),xi[na0]);
 						// xi_sum[na] = xi_sum[na] + xi[na0];
 						//xi_sum[na+1] = xi_sum[na+1] + xi[na1];
@@ -2577,8 +2609,8 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
                                         if(dS[xi_o[nao]][indv][indv] > 0.0)
                                         {
                                             //printf("K<0!!! Material 0 should be softer\n");
-                                            dE = data2[nad1]/(N1*N2*N3)+II[naij]-sigmal[naij];
-                                            dE_imag = data2[nad2]/(N1*N2*N3);
+                                            dE = _data2[na0]/(N1*N2*N3)+II[naij]-sigmal[naij];
+                                            dE_imag = _data2[na0+1]/(N1*N2*N3);
 
                                             xi[na0] = xi[na0]+CDv*dE;
 							                xi[na1] = xi[na1]+CDv*dE_imag;
@@ -2588,8 +2620,8 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
                                         else
                                         {
                                             //printf("K>0!!! Material 0 should be stiffer\n");
-                                            dE = data2[nad1]/(N1*N2*N3)+II[naij]-sigmal[naij];
-                                            dE_imag = data2[nad2]/(N1*N2*N3);
+                                            dE = _data2[na0]/(N1*N2*N3)+II[naij]-sigmal[naij];
+                                            dE_imag = _data2[na0+1]/(N1*N2*N3);
                                             
                                             xi[na0] = xi[na0]-CDv*dE;
 								            xi[na1] = xi[na1]-CDv*dE_imag;
@@ -2616,7 +2648,7 @@ void virtualevolv(float * data, float * data2, float * sigmav, double * DD, doub
                                     }
                                     if(fabs(xi[na0])>1E10)
                                     {
-                                        printf("u=%d, v=%d, ZLdC= %d, dE1=%e, dE2= %e, dE3=%e \n",u,v,ZLdC[xi_o[nao]][indv],data2[nad1]/(N1*N2*N3),II[naij],-sigmal[naij]);
+                                        printf("u=%d, v=%d, ZLdC= %d, dE1=%e, dE2= %e, dE3=%e \n",u,v,ZLdC[xi_o[nao]][indv],_data2[na0]/(N1*N2*N3),II[naij],-sigmal[naij]);
                                         it=NT-1;
                                     }
                                 }//else
@@ -4530,7 +4562,8 @@ float Energy_calculation(double *fx, double *fy, double *fz, double eps[NS][ND][
 }
 
 
-double plasticevolv(double * xi_bc,double * xi,double CD2[NS],float uq2,float * data2,double Asf2[NS],double tau[N1][N2][N3][NS],double dslip2[NS],float * datag,float * data,double * gamma1,int nsize,double a_f, double a_s, double C44, int it_plastic){
+double plasticevolv(double * xi_bc,double * xi,double CD2[NS],float uq2,float * _data2,double Asf2[NS],double tau[N1][N2][N3][NS],double dslip2[NS],float * datag,float * data,double * gamma1,int nsize,double a_f, double a_s, double C44, int it_plastic)
+{
     int isa,is, i, j, k, na0,na1,nad1,nad2;
     double gamma;
     gamma = 0.0;
@@ -4547,12 +4580,12 @@ double plasticevolv(double * xi_bc,double * xi,double CD2[NS],float uq2,float * 
                     nad2 = na0+2;
                     if(xi_bc[na0]==0){//evolve bulk phase field
                         if(0){	//does not apply gradient term
-                            xi[na0] = xi[na0]-CD2[isa]*(uq2*data2[nad1]/nsize+Asf2[isa]*pi*sin(2.0*pi*xi[na0])-tau[i][j][k][isa]/dslip2[isa]+datag[nad1]/nsize);      /*(k+1)+(j+1)*10.0+(i+1)*100.0*/
-                            xi[na1] = xi[na1]-CD2[isa]*(uq2*data2[nad2]/nsize + datag[nad1]/nsize);
+                            xi[na0] = xi[na0]-CD2[isa]*(uq2*_data2[na0  ]/nsize+Asf2[isa]*pi*sin(2.0*pi*xi[na0])-tau[i][j][k][isa]/dslip2[isa]+datag[nad1]/nsize);      /*(k+1)+(j+1)*10.0+(i+1)*100.0*/
+                            xi[na1] = xi[na1]-CD2[isa]*(uq2*_data2[na0+1]/nsize + datag[nad1]/nsize);
                         }
                         else{
-                            xi[na0] = xi[na0]-CD2[isa]*(uq2*data2[nad1]/nsize+Asf2[isa]*pi*sin(2.0*pi*xi[na0])-tau[i][j][k][isa]/dslip2[isa]);      /*(k+1)+(j+1)*10.0+(i+1)*100.0*/
-                            xi[na1] = xi[na1]-uq2*CD2[isa]*(data2[nad2]/nsize);
+                            xi[na0] = xi[na0]-CD2[isa]*(uq2*_data2[na0  ]/nsize+Asf2[isa]*pi*sin(2.0*pi*xi[na0])-tau[i][j][k][isa]/dslip2[isa]);      /*(k+1)+(j+1)*10.0+(i+1)*100.0*/
+                            xi[na1] = xi[na1]-uq2*CD2[isa]*(_data2[na0+1]/nsize);
                         }
                     }
                     gamma += xi[na0]/nsize;
